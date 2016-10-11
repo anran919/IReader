@@ -5,4 +5,20 @@
           android:orderInCategory="100"
           android:title="@string/action_settings"
           app:showAsAction="never"/>
+    <item android:id="@+id/action_edit"
+          android:orderInCategory="100"
+          android:title="@string/action_edit"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_share"
+          android:orderInCategory="100"
+          android:title="@string/action_share"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_settings3"
+          android:orderInCategory="100"
+          android:title="@string/action_settings3"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_settings4"
+          android:orderInCategory="100"
+          android:title="@string/action_settings4"
+          app:showAsAction="never"/>
 </menu>

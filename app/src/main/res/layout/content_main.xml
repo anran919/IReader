@@ -13,8 +13,11 @@
     tools:context="com.anakin.ireader.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recylcerview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:focusable="false"
+        android:background="#067aed"
+    />
 </RelativeLayout>
