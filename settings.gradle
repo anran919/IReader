@@ -1,1 +1,1 @@
-include ':app', ':tvrecyclerview'
+include ':app'
