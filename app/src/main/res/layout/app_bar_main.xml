@@ -16,16 +16,21 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email"/>
 
+    <!--与滚动view相关联-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+        <!--toolbar 颜色-->
+        <!-- android:background="?attr/colorPrimary"-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        <!--内容导航-->
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
@@ -37,7 +42,8 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager_activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="match_parent"/>
+    <include layout="@layout/content_main"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

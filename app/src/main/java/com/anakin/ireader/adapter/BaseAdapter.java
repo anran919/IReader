@@ -6,13 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.anakin.ireader.adapter.holder.BaseHolder;
 
 import java.util.List;
 
 /**
  * 创建者     demo
+<<<<<<< HEAD
  * 创建时间   2016/11/21 0021 11:39
  */
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> {
@@ -45,10 +45,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
         holder.setData(t);
     }
 
+
     @Override
     public int getItemCount() {
         return datas.size();
     }
-
-
 }
