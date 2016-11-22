@@ -15,7 +15,7 @@ import com.anakin.ireader.adapter.ArticleAdapter;
 import com.anakin.ireader.bean.ListItem;
 import com.anakin.ireader.presenter.ArticlePresenter;
 import com.anakin.ireader.presenter.ListPresenter;
-import com.anakin.ireader.view.ContentListView;
+import com.anakin.ireader.ui.view.ContentListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,6 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     private void initPresenter() {
-
         mPresenter = ArticlePresenter.getInstance();
         mPresenter.attachView(this);
 
@@ -65,7 +64,7 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     private void initRecyclerView() {
         datas = new ArrayList<>(80);
         for (int i = 0; i < 80; i++) {
-            datas.add("item item item " + i);
+            datas.add("黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经" + i);
         }
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(getContext());

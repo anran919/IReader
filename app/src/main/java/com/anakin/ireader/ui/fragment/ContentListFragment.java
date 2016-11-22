@@ -16,7 +16,7 @@ import com.anakin.ireader.adapter.BaseAdapter;
 import com.anakin.ireader.adapter.holder.BaseHolder;
 import com.anakin.ireader.adapter.holder.MainListHolder;
 import com.anakin.ireader.bean.ListItem;
-import com.anakin.ireader.view.ContentListView;
+import com.anakin.ireader.ui.view.ContentListView;
 
 import java.util.ArrayList;
 import java.util.List;

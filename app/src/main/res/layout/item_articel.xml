@@ -28,7 +28,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/img"
             android:singleLine="true"
-            android:text="this is title"
+            android:text="黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经"
             android:textSize="18sp"/>
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_marginTop="6dp"
             android:layout_toRightOf="@id/img"
             android:singleLine="true"
-            android:text="2015.10.6"
+            android:text="2016年11月22日11:33:13"
             android:textSize="12sp"/>
 
         <TextView

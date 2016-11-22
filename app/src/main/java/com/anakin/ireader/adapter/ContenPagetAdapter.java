@@ -9,6 +9,7 @@ import com.anakin.ireader.ui.fragment.ArticleFragment;
 import com.anakin.ireader.ui.fragment.ImageFragment;
 import com.anakin.ireader.ui.fragment.QuestionsFragment;
 import com.anakin.ireader.ui.fragment.ThingsFragment;
+import com.anakin.ireader.ui.fragment.WeatherFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,12 @@ public class ContenPagetAdapter  extends FragmentPagerAdapter{
     }
 
     private void createFragment() {
-        fragmentList = new ArrayList<>(4);
+        fragmentList = new ArrayList<>(5);
         fragmentList.add(ArticleFragment.getInstance());
         fragmentList.add(ImageFragment.getInstance());
         fragmentList.add(ThingsFragment.getInstance());
         fragmentList.add(QuestionsFragment.getInstance());
+        fragmentList.add(WeatherFragment.getInstance());
     }
 
     @Override

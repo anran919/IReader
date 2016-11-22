@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anakin.ireader.R;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,7 +38,9 @@ public class ArticelHolder extends BaseHolder<String> {
     @Override
     public void setData(String data) {
         mTitle.setText(data);
-        img.setImageResource(R.mipmap.ic_launcher);
+        Picasso.with(itemView.getContext()).load(R.mipmap.testimg).fit().into(img);
+        mContent.setText("黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经");
+        mdate.setText("2016年11月22日 11:39:41");
 //        mdate.setText(item.getDate());
 //        mContent.setText(item.getContent());
 //        mItem = item;

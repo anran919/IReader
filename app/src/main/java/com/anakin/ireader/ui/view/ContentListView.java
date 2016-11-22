@@ -1,4 +1,4 @@
-package com.anakin.ireader.view;
+package com.anakin.ireader.ui.view;
 
 import com.anakin.ireader.bean.ListItem;
 

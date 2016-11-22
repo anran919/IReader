@@ -1,6 +1,7 @@
 package com.anakin.ireader.presenter;
 
-import com.anakin.ireader.view.ContentListView;
+
+import com.anakin.ireader.ui.view.ContentListView;
 
 /**
  * 创建者     demo
