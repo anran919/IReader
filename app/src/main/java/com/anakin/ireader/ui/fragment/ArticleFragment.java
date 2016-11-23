@@ -45,11 +45,9 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
         View rootView = inflater.inflate(R.layout.fragment_articel, container, false);
         ButterKnife.bind(this, rootView);
         initData();
-        initEvent();
         return rootView;
     }
 
-    @Override
     protected void initData() {
         initRecyclerView();
         initPresenter();
@@ -82,10 +80,6 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
         mPresenter.loadListDates();
     }
 
-    @Override
-    protected void initEvent() {
-
-    }
 
     public static ArticleFragment getInstance() {
         return ARTICLE_FRAGMENT;

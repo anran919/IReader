@@ -15,8 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 import com.anakin.ireader.adapter.ContenPagetAdapter;
-import com.anakin.ireader.config.PagerConfig;
+import com.anakin.ireader.constants.PagerConfig;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {

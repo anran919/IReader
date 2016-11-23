@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.anakin.ireader.constants.PagerConfig;
 import com.anakin.ireader.ui.fragment.ArticleFragment;
-import com.anakin.ireader.ui.fragment.ImageFragment;
+import com.anakin.ireader.ui.fragment.PictureFragment;
 import com.anakin.ireader.ui.fragment.QuestionsFragment;
 import com.anakin.ireader.ui.fragment.ThingsFragment;
-import com.anakin.ireader.ui.fragment.WeatherFragment;
+import com.anakin.ireader.ui.fragment.MoviesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +30,10 @@ public class ContenPagetAdapter  extends FragmentPagerAdapter{
     private void createFragment() {
         fragmentList = new ArrayList<>(5);
         fragmentList.add(ArticleFragment.getInstance());
-        fragmentList.add(ImageFragment.getInstance());
+        fragmentList.add(PictureFragment.getInstance());
         fragmentList.add(ThingsFragment.getInstance());
         fragmentList.add(QuestionsFragment.getInstance());
-        fragmentList.add(WeatherFragment.getInstance());
+        fragmentList.add(MoviesFragment.getInstance());
     }
 
     @Override

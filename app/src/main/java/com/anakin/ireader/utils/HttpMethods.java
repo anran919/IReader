@@ -1,6 +1,6 @@
 package com.anakin.ireader.utils;
 
-import com.anakin.ireader.model.entity.Weather;
+import com.anakin.ireader.model.entity.MovieEntity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,8 +9,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * 创建者     demo
@@ -20,8 +18,7 @@ import rx.schedulers.Schedulers;
 public class HttpMethods {
     private static final int DEFAULT_TIMEOUT = 5;
     private final String baseUrl = "http://www.weather.com.cn/data/sk/";
-    private final WeatherService mService;
-
+    private final MoviesService mService;
 
     /**
      * 构造方法私有
@@ -36,7 +33,7 @@ public class HttpMethods {
                 .client(builder.build())
                 .build();
 
-        mService = retrofit.create(WeatherService.class);
+        mService = retrofit.create(MoviesService.class);
     }
 
 
@@ -51,11 +48,11 @@ public class HttpMethods {
 //    }
 
 
-    public void getWeatherService(Subscriber<Weather> subscribe, String cityNo) {
-        mService.getWeatherInfo(cityNo)
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscribe);
+    public void getWeatherService(Subscriber<MovieEntity> subscribe, int start,int count) {
+//        mService.getWeatherInfo(start,count)
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(subscribe);
     }
 }

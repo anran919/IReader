@@ -23,16 +23,6 @@ public class QuestionsFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_questions, container, false);
     }
 
-    @Override
-    protected void initEvent() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
     public static QuestionsFragment getInstance() {
         return QUESTIONS_FRAGMENT;
     }

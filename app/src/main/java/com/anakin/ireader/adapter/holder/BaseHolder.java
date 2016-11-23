@@ -17,11 +17,15 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
     private static final String TAG = "BaseHolder";
     OnItemLongClickListener mLongClickListener;
     OnItemClickListener mClickListener;
+    public View itemView;
 
     public BaseHolder(View itemView) {
         super(itemView);
+        this.itemView=itemView;
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
+
+
     }
 
     public abstract void setData(T data);
@@ -49,5 +53,9 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
             mLongClickListener.onItemLongClick(view,getLayoutPosition());
         }
         return true;
+    }
+
+    public <V extends View> V getView(int res){
+        return (V) itemView.findViewById(res);
     }
 }

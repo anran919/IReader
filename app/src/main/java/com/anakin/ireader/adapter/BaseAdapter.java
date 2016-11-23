@@ -1,11 +1,12 @@
 package com.anakin.ireader.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.anakin.ireader.adapter.holder.BaseHolder;
+
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
     private int res_id;
     public Context mContext;
 
-    public BaseAdapter(Context context, List<T> datas, int res_id) {
+    public BaseAdapter(Context context,  List<T> datas, int res_id) {
         mContext = context;
         this.datas = datas;
         this.res_id = res_id;
@@ -28,7 +29,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
 
     @Override
     public BaseHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e(TAG, " parent " + parent);
         View view = LayoutInflater.from(mContext).inflate(res_id, parent, false);
         return createHolder(mContext,view);
     }

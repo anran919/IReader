@@ -17,15 +17,6 @@ public class ThingsFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_things,container,false);
     }
 
-    @Override
-    protected void initEvent() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
 
     private static final ThingsFragment THINGS_FRAGMENT = new ThingsFragment();
 

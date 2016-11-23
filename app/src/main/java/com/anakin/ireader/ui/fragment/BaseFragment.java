@@ -31,19 +31,9 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         mContext = context;
     }
 
-    protected abstract void initEvent();
-
-    protected abstract void initData();
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 
     @Override
     public void onDestroyView() {
