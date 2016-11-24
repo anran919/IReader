@@ -3,7 +3,6 @@ package com.anakin.ireader.ui.fragment;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -117,21 +116,21 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
 
     @Override
     public void onRefresh() {
-        //检查是否处于刷新状态
-        if (!isRefresh) {
-            isRefresh = true;
-            //模拟加载网络数据，这里设置4秒，正好能看到4色进度条
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    //显示或隐藏刷新进度条
-                    mSwrfresh.setRefreshing(false);
-                    //修改adapter的数据
-//                    mSubjects.add("这是新添加的数据");
-                    mMovicesAdapter.notifyDataSetChanged();
-                    isRefresh = false;
-                }
-            }, 4000);
-        }
+//        //检查是否处于刷新状态
+//        if (!isRefresh) {
+//            isRefresh = true;
+//            //模拟加载网络数据，这里设置4秒，正好能看到4色进度条
+//            new Handler().postDelayed(new Runnable() {
+//                public void run() {
+//                    //显示或隐藏刷新进度条
+//                    mSwrfresh.setRefreshing(false);
+//                    //修改adapter的数据
+////                    mSubjects.add("这是新添加的数据");
+//                    mMovicesAdapter.notifyDataSetChanged();
+//                    isRefresh = false;
+//                }
+//            }, 4000);
+//        }
 
     }
 }

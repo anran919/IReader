@@ -1,7 +1,7 @@
 package com.anakin.ireader.presenter;
 
 
-import com.anakin.ireader.ui.view.ContentListView;
+import com.anakin.ireader.ui.view.ArticleView;
 
 /**
  * 创建者     demo
@@ -22,7 +22,7 @@ public class ArticlePresenter implements ListPresenter {
     }
 
     @Override
-    public void attachView(ContentListView view) {
+    public void attachView(ArticleView view) {
 
     }
 

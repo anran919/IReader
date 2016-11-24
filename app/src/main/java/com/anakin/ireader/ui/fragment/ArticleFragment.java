@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
-import com.anakin.ireader.bean.ListItem;
+import com.anakin.ireader.model.entity.ListItem;
 import com.anakin.ireader.presenter.ArticlePresenter;
 import com.anakin.ireader.presenter.ListPresenter;
-import com.anakin.ireader.ui.view.ContentListView;
+import com.anakin.ireader.ui.view.ArticleView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:43
  */
-public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener ,ContentListView {
+public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener ,ArticleView {
     private static final ArticleFragment ARTICLE_FRAGMENT = new ArticleFragment();
     private static final String TAG = "ArticleFragment";
     @Bind(R.id.recyclerview_articel)
@@ -62,7 +62,7 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     private void initRecyclerView() {
         datas = new ArrayList<>(80);
         for (int i = 0; i < 80; i++) {
-            datas.add("黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经" + i);
+            datas.add("黄粱一梦二十年 依旧是不懂爱也不懂情 写歌的人假正经啊 听歌的人最无情" + i);
         }
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(getContext());

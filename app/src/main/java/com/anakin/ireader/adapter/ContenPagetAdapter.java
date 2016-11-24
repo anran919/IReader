@@ -18,7 +18,7 @@ import java.util.List;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 15:15
  */
-public class ContenPagetAdapter  extends FragmentPagerAdapter{
+public class ContenPagetAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragmentList;
 

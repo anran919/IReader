@@ -1,5 +1,5 @@
 package com.anakin.ireader.presenter;
-import com.anakin.ireader.ui.view.ContentListView;
+import com.anakin.ireader.ui.view.ArticleView;
 
 /**
  * 创建者     demo
@@ -10,7 +10,7 @@ public interface ListPresenter {
      */
     void loadListDates();
     void loadMore();
-    void attachView(ContentListView view);
+    void attachView(ArticleView view);
     void detach();
     void onResume();
 }
