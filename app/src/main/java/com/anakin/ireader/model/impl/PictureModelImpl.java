@@ -5,7 +5,7 @@ import android.util.Log;
 import com.anakin.ireader.model.PictureModel;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.presenter.OnPictureListener;
-import com.anakin.ireader.utils.PictureService;
+import com.anakin.ireader.helper.utils.PictureService;
 
 import java.util.List;
 

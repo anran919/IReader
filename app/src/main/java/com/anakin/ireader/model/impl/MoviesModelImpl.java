@@ -1,11 +1,9 @@
 package com.anakin.ireader.model.impl;
 
-import android.util.Log;
-
 import com.anakin.ireader.model.MoviesModel;
 import com.anakin.ireader.model.entity.MovieEntity;
 import com.anakin.ireader.presenter.OnMoviesListener;
-import com.anakin.ireader.utils.MoviesService;
+import com.anakin.ireader.helper.utils.MoviesService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,10 +28,7 @@ public class MoviesModelImpl implements MoviesModel {
      */
     @Override
     public void loadMovies(int start, int count, final OnMoviesListener moviesListener) {
-
-
         // 加载数据
-
 //        String baseUrl = "https://api.douban.com/v2/movie/";
         String baseUrl = "https://api.douban.com/v2/movie/";
 
@@ -41,7 +36,6 @@ public class MoviesModelImpl implements MoviesModel {
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         MoviesService service = retrofit.create(MoviesService.class);
         Call<MovieEntity> call = service.getTopMovie(start,count);
         call.enqueue(new Callback<MovieEntity>() {
@@ -49,15 +43,13 @@ public class MoviesModelImpl implements MoviesModel {
             public void onResponse(Call<MovieEntity> call, Response<MovieEntity> response) {
 //                resultTV.setText(response.body().toString());
                 MovieEntity MovieEntity = response.body();
-                Log.e(TAG, " onResponse>>>>>>>" + MovieEntity);
-                moviesListener.OnSueeess(MovieEntity);
+                moviesListener.OnSuccess(MovieEntity);
 
             }
 
             @Override
             public void onFailure(Call<MovieEntity> call, Throwable t) {
                 moviesListener.OnError();
-                Log.e(TAG, " onFailure>>>>>>>" + call.toString());
 //                resultTV.setText(t.getMessage());
             }
         });

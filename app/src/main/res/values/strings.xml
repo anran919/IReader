@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">IReader</string>
+    <string name="app_name">悦读</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">设置</string>
     <string name="action_settings2">设置</string>
     <string name="action_settings1">设置</string>
@@ -17,4 +16,7 @@
     <string name="articel">文章</string>
     <string name="email">anran0919@163.com</string>
     <string name="time">2016-11-24</string>
+    <string name="content">
+        多年前飞走的那只鸽子，你在每个下雨的黄昏还是会习惯性担惊受怕片刻，毕竟所有怀念都源于世事更迭的不再拥有。不知需要多久你才能明白，对往日虔诚默哀，远比缅怀有力。 by 张瑞琪
+    </string>
 </resources>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
+import com.anakin.ireader.helper.ArticleItemDecoration;
 import com.anakin.ireader.model.entity.ListItem;
 import com.anakin.ireader.presenter.ArticlePresenter;
 import com.anakin.ireader.presenter.ListPresenter;
@@ -56,7 +57,6 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     private void initPresenter() {
         mPresenter = ArticlePresenter.getInstance();
         mPresenter.attachView(this);
-
     }
 
     private void initRecyclerView() {
@@ -67,8 +67,9 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mArticleAdapter = new ArticleAdapter(mContext, datas, R.layout.item_articel);
-//        mRecyclerView.addItemDecoration(new RecyclerViewItemDecoration(getContext()));
+        mArticleAdapter = new ArticleAdapter(mContext, datas, R.layout.item_article);
+        ArticleItemDecoration  decoration = new ArticleItemDecoration();
+        mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setAdapter(mArticleAdapter);
         mRecyclerView.setVerticalScrollBarEnabled(true);
     }

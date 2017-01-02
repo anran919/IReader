@@ -1,6 +1,7 @@
 package com.anakin.ireader.adapter.holder;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,22 +18,34 @@ import butterknife.ButterKnife;
  * 创建时间   2016/11/21 0021 14:41
  */
 public class ArticelHolder extends BaseHolder<String> {
+    private static final String TAG = "ArticelHolder";
+    private Context mContext;
+
     @Bind(R.id.tv_title)
     TextView mTitle;
     @Bind(R.id.tv_date)
-    TextView mdate;
+    TextView mDate;
     @Bind(R.id.tv_content)
     TextView mContent;
     @Bind(R.id.img)
-    public ImageView img;
-    private View item;
-    private Context mContext;
+    ImageView img;
+
+//    TextView mTitle;
+//    TextView mDate;
+//    TextView mContent;
+//    ImageView img;
 
     public ArticelHolder(Context context, View itemView) {
         super(itemView);
-        item = itemView;
-        mContext = context;
+//        this.mItemView = itemView;
+        Log.e(TAG," ====== ARTICLE HOLDER ==========="+itemView);
         ButterKnife.bind(this, itemView);
+        mContext = context;
+//        mTitle=  getView(R.id.tv_title);
+//        mDate= getView(R.id.tv_date);
+//        mContent=getView(R.id.tv_content);
+//        img=getView(R.id.img);
+
     }
 
     @Override
@@ -40,7 +53,7 @@ public class ArticelHolder extends BaseHolder<String> {
         mTitle.setText(data);
         Picasso.with(itemView.getContext()).load(R.mipmap.picture_error_pic).fit().into(img);
         mContent.setText("黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经");
-        mdate.setText("2016年11月22日 11:39:41");
+        mDate.setText("2016年11月22日 11:39:41");
 //        mdate.setText(item.getDate());
 //        mContent.setText(item.getContent());
 //        mItem = item;

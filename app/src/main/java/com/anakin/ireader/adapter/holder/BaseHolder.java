@@ -55,7 +55,5 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
         return true;
     }
 
-    public <V extends View> V getView(int res){
-        return (V) itemView.findViewById(res);
-    }
+
 }

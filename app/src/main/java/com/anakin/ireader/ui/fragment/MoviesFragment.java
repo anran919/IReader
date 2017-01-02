@@ -35,7 +35,6 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     RecyclerView mRecyclerView;
     @Bind(R.id.swrfresh)
     SwipeRefreshLayout mSwrfresh;
-
     private ProgressDialog mProgressDialog;
     private MoviesPresenterImpl mMoviesPresenter;
     private boolean isRefresh;

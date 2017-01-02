@@ -8,7 +8,7 @@ import com.anakin.ireader.model.entity.MovieEntity;
  */
 public interface OnMoviesListener {
 
-    void OnSueeess(MovieEntity entity);
+    void OnSuccess(MovieEntity entity);
 
     void OnError();
 }
