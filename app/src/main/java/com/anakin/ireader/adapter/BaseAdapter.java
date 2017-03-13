@@ -2,7 +2,6 @@ package com.anakin.ireader.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import java.util.List;
  */
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> {
 
-    private static final String TAG = "BaseAdapter";
     private List<T> datas;
     private int res_id;
     public Context mContext;
@@ -46,7 +44,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "datas.size()" + datas.size());
         return datas.size();
     }
 }

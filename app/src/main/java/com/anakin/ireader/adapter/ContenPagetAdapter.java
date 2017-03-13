@@ -8,7 +8,7 @@ import com.anakin.ireader.constants.PagerConfig;
 import com.anakin.ireader.ui.fragment.ArticleFragment;
 import com.anakin.ireader.ui.fragment.PictureFragment;
 import com.anakin.ireader.ui.fragment.QuestionsFragment;
-import com.anakin.ireader.ui.fragment.ThingsFragment;
+import com.anakin.ireader.ui.fragment.VeidoFragment;
 import com.anakin.ireader.ui.fragment.MoviesFragment;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class ContenPagetAdapter extends FragmentPagerAdapter {
         fragmentList = new ArrayList<>(5);
         fragmentList.add(ArticleFragment.getInstance());
         fragmentList.add(PictureFragment.getInstance());
-        fragmentList.add(ThingsFragment.getInstance());
+        fragmentList.add(VeidoFragment.getInstance());
         fragmentList.add(QuestionsFragment.getInstance());
         fragmentList.add(MoviesFragment.getInstance());
     }
