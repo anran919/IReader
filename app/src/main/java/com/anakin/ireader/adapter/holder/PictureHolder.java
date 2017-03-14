@@ -1,7 +1,6 @@
 package com.anakin.ireader.adapter.holder;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,9 +18,7 @@ import butterknife.ButterKnife;
  * 创建时间   2016/11/21 0021 14:41
  */
 public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
-    private final String TAG = "PictureHolder";
     private View mItemView;
-
     @Bind(R.id.iv_picture)
     ImageView picture;
     @Bind(R.id.tv_desc)
@@ -40,7 +37,6 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
             @Override
             public Bitmap transform(Bitmap source) {
                 int targetWidth = picture.getWidth();
-                Log.i(TAG, "source.getHeight()=" + source.getHeight() + ",source.getWidth()=" + source.getWidth() + ",targetWidth=" + targetWidth);
                 if (source.getWidth() == 0) {
                     return source;
                 }
@@ -71,7 +67,6 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
         };
         String url = results.getUrl();
         String desc = results.getDesc();
-        Log.e(TAG, "url --------> " + url);
         Picasso.with(itemView.getContext())
                 .load(url)
                 .error(R.mipmap.picture_error_pic)
@@ -82,6 +77,5 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
                 .transform(transformation)  //等比加载图片
                 .into(picture);
         mDesc.setText(desc);
-        Log.e(TAG, "url --------> " + results);
     }
 }

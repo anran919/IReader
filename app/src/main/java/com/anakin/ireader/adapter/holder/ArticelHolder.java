@@ -38,7 +38,6 @@ public class ArticelHolder extends BaseHolder<String> {
     public ArticelHolder(Context context, View itemView) {
         super(itemView);
 //        this.mItemView = itemView;
-        Log.e(TAG," ====== ARTICLE HOLDER ==========="+itemView);
         ButterKnife.bind(this, itemView);
         mContext = context;
 //        mTitle=  getView(R.id.tv_title);

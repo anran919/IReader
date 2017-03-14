@@ -1,6 +1,7 @@
-package com.anakin.ireader.presenter;
+package com.anakin.ireader.presenter.impl;
 
 
+import com.anakin.ireader.presenter.ListPresenter;
 import com.anakin.ireader.ui.view.ArticleView;
 
 /**

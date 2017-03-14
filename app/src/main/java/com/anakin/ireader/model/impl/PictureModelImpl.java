@@ -2,10 +2,10 @@ package com.anakin.ireader.model.impl;
 
 import android.util.Log;
 
+import com.anakin.ireader.helper.utils.PictureService;
 import com.anakin.ireader.model.PictureModel;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.presenter.OnPictureListener;
-import com.anakin.ireader.helper.utils.PictureService;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 
 /**
  * 创建者     demo

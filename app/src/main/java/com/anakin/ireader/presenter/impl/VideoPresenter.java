@@ -3,7 +3,7 @@ import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.model.impl.VideoModel;
 import com.anakin.ireader.presenter.OnVideoListener;
 import com.anakin.ireader.presenter.IVideoPresenter;
-import com.anakin.ireader.ui.fragment.VeidoFragment;
+import com.anakin.ireader.ui.fragment.VideoFragment;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ import java.util.List;
  * 创建时间   2016/12/19 0019 15:18
  */
 public class VideoPresenter implements IVideoPresenter, OnVideoListener {
-    VeidoFragment mVeidoFragment;
+    VideoFragment mVideoFragment;
     private final VideoModel mModel;
 
-    public VideoPresenter(VeidoFragment veidoFragment) {
-        this.mVeidoFragment = veidoFragment;
+    public VideoPresenter(VideoFragment videoFragment) {
+        this.mVideoFragment = videoFragment;
         mModel = new VideoModel();
     }
     /**
@@ -24,20 +24,20 @@ public class VideoPresenter implements IVideoPresenter, OnVideoListener {
      */
     @Override
     public void getThings() {
-        mVeidoFragment.showLoading();
+        mVideoFragment.showLoading();
         mModel.getVideo(this);
     }
 
     @Override
     public void onSuccess(List<VideoEntity> entity) {
-        mVeidoFragment.hideLoading();
-        mVeidoFragment.showVideos(entity);
+        mVideoFragment.hideLoading();
+        mVideoFragment.showVideos(entity);
     }
 
     @Override
     public void onFail() {
-        mVeidoFragment.hideLoading();
-        mVeidoFragment.showError();
+        mVideoFragment.hideLoading();
+        mVideoFragment.showError();
     }
 
 

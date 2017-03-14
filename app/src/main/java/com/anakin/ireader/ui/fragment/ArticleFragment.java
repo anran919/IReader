@@ -14,7 +14,7 @@ import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
 import com.anakin.ireader.helper.ArticleItemDecoration;
 import com.anakin.ireader.model.entity.ListItem;
-import com.anakin.ireader.presenter.ArticlePresenter;
+import com.anakin.ireader.presenter.impl.ArticlePresenter;
 import com.anakin.ireader.presenter.ListPresenter;
 import com.anakin.ireader.ui.view.ArticleView;
 

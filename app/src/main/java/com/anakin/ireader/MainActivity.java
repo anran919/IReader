@@ -1,5 +1,6 @@
 package com.anakin.ireader;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -11,12 +12,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
-import com.anakin.ireader.adapter.ContenPagetAdapter;
+import com.anakin.ireader.adapter.ContentPagerAdapter;
 import com.anakin.ireader.constants.PagerConfig;
 
 public class MainActivity extends AppCompatActivity
@@ -27,6 +30,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // 设置一个exit transition
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+            window.setEnterTransition(new Explode());
+            window.setExitTransition(new Explode());
+        }
         super.onCreate(savedInstanceState);
         initView();
         initViewPager();
@@ -35,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
 
     private void initViewPager() {
-        ContenPagetAdapter pagerAdapter = new ContenPagetAdapter(getSupportFragmentManager());
+        ContentPagerAdapter pagerAdapter = new ContentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(pagerAdapter);
         mTab.setupWithViewPager(mViewPager);
         mViewPager.setOffscreenPageLimit(PagerConfig.titles.length); //超出屏幕的限制
