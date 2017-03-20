@@ -25,7 +25,6 @@ import com.anakin.ireader.constants.PagerConfig;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
     private TabLayout mTab;
-    private static final String TAG = "MainActivity";
     private ViewPager mViewPager;
 
     @Override
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         initView();
         initViewPager();
-        initEvent();
     }
 
 
@@ -49,19 +47,9 @@ public class MainActivity extends AppCompatActivity
         mViewPager.setAdapter(pagerAdapter);
         mTab.setupWithViewPager(mViewPager);
         mViewPager.setOffscreenPageLimit(PagerConfig.titles.length); //超出屏幕的限制
-        initData();
-        initEvent();
     }
 
-    private void initData() {
 
-
-    }
-
-    private void initEvent() {
-
-
-    }
 
     private void initView() {
         setContentView(R.layout.activity_main);
