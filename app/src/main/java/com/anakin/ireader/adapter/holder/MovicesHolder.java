@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.model.entity.MovieEntity;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,11 +33,19 @@ public class MovicesHolder extends BaseHolder<MovieEntity.SubjectsEntity> {
     }
 
     @Override
-    public void setData(MovieEntity.SubjectsEntity data) {
+    public void setData(MovieEntity.SubjectsEntity data, int position) {
         title.setText(data.title);
         String small = data.images.getSmall();
-        Picasso.with(itemView.getContext()).load(small).fit().into(photo);
-        grade.setText("评分："+data.rating.average);
+//        Picasso.with(itemView.getContext()).load(small).fit().into(photo);
+        Glide
+                .with(itemView.getContext())
+                .load(small)
+                .centerCrop()
+                .placeholder(R.mipmap.picture_error_pic)
+                .crossFade()
+                .into(photo);
+
+        grade.setText("评分：" + data.rating.average);
         enTitle.setText(data.original_title);
     }
 }

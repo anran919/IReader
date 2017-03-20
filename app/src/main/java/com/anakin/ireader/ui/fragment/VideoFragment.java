@@ -17,6 +17,7 @@ import com.anakin.ireader.adapter.holder.VideoHolder;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;
 import com.anakin.ireader.ui.view.IVideoView;
+import com.anakin.ireader.utils.L;
 import com.anakin.ireader.widget.VideoItemDecoration;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
@@ -33,7 +34,6 @@ import butterknife.ButterKnife;
  */
 public class VideoFragment extends BaseFragment implements IVideoView {
 
-    private static final String TAG ="VideoFragment" ;
     @Bind(R.id.rl_list_video)
     RelativeLayout mRelativeLayout;
     @Bind(R.id.video_list)
@@ -98,7 +98,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     }
 
     @Override
-    public void showVideos(List<VideoEntity> entity) {
+    public void showVideos(List<VideoEntity.ResultsEntity> entity) {
         // Adapter
         mAdapter = new VideoAdapter(mContext,entity, R.layout.item_list_video);
         mLinearLayoutManager = new LinearLayoutManager(mContext);

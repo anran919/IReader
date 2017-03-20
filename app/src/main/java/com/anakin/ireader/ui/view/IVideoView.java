@@ -12,5 +12,5 @@ public interface IVideoView {
     void showLoading();
     void hideLoading();
     void showError();
-    void showVideos(List<VideoEntity> entity);
+    void showVideos(List<VideoEntity.ResultsEntity> entity);
 }

@@ -1,8 +1,8 @@
 package com.anakin.ireader.presenter.impl;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.model.impl.VideoModel;
-import com.anakin.ireader.presenter.OnVideoListener;
 import com.anakin.ireader.presenter.IVideoPresenter;
+import com.anakin.ireader.presenter.OnVideoListener;
 import com.anakin.ireader.ui.fragment.VideoFragment;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class VideoPresenter implements IVideoPresenter, OnVideoListener {
     }
 
     @Override
-    public void onSuccess(List<VideoEntity> entity) {
+    public void onSuccess(List<VideoEntity.ResultsEntity> entity) {
         mVideoFragment.hideLoading();
         mVideoFragment.showVideos(entity);
     }

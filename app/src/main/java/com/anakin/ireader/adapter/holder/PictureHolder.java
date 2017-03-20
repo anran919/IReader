@@ -1,14 +1,13 @@
 package com.anakin.ireader.adapter.holder;
 
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.model.entity.PictureEntity;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,9 +30,9 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
     }
 
     @Override
-    public void setData(PictureEntity.ResultsEntity results) {
+    public void setData(PictureEntity.ResultsEntity results, int position) {
 
-        Transformation transformation = new Transformation() {
+       /* Transformation transformation = new Transformation() {
             @Override
             public Bitmap transform(Bitmap source) {
                 int targetWidth = picture.getWidth();
@@ -64,10 +63,19 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
             public String key() {
                 return "transformation" + " desiredWidth";
             }
-        };
+        };*/
         String url = results.getUrl();
         String desc = results.getDesc();
-        Picasso.with(itemView.getContext())
+
+        Glide.with(itemView.getContext()).load(url)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .placeholder(R.mipmap.picture_error_pic)
+                .error(R.mipmap.picture_error_pic)
+                .centerCrop().override(1090, 1090*3/4)
+                .crossFade().into(picture);
+
+
+/*        Picasso.with(itemView.getContext())
                 .load(url)
                 .error(R.mipmap.picture_error_pic)
                 .placeholder(R.mipmap.picture_error_pic)
@@ -75,7 +83,7 @@ public class PictureHolder extends BaseHolder<PictureEntity.ResultsEntity> {
 //                .fit()
 //                .centerCrop()
                 .transform(transformation)  //等比加载图片
-                .into(picture);
+                .into(picture);*/
         mDesc.setText(desc);
     }
 }

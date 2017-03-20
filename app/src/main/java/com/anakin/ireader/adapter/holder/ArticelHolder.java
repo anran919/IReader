@@ -1,14 +1,13 @@
 package com.anakin.ireader.adapter.holder;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anakin.ireader.R;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,9 +47,16 @@ public class ArticelHolder extends BaseHolder<String> {
     }
 
     @Override
-    public void setData(String data) {
+    public void setData(String data, int position) {
         mTitle.setText(data);
-        Picasso.with(itemView.getContext()).load(R.mipmap.picture_error_pic).fit().into(img);
+//        Picasso.with(itemView.getContext()).load(R.mipmap.picture_error_pic).fit().into(img);
+
+        Glide.with(itemView.getContext())
+                .load(R.mipmap.picture_error_pic)
+                .centerCrop()
+                .placeholder(R.mipmap.picture_error_pic)
+                .crossFade()
+                .into(img);
         mContent.setText("黄粱一梦二十年，依旧是不懂情也不懂爱，听歌的人最无情，写歌的人假正经");
         mDate.setText("2016年11月22日 11:39:41");
 //        mdate.setText(item.getDate());

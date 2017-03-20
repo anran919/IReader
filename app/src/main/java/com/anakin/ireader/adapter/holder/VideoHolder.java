@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:41
  */
-public class VideoHolder extends BaseHolder<VideoEntity> {
+public class VideoHolder extends BaseHolder<VideoEntity.ResultsEntity> {
     public final static String TAG = "TT2";
 
     private View mItemView;
@@ -28,9 +28,6 @@ public class VideoHolder extends BaseHolder<VideoEntity> {
     @Bind(R.id.video_item_player)
     StandardGSYVideoPlayer gsyVideoPlayer;
 
-
-
-
     public VideoHolder(Context context, View itemView) {
         super(itemView);
         this.mContext = context;
@@ -38,9 +35,8 @@ public class VideoHolder extends BaseHolder<VideoEntity> {
         ButterKnife.bind(this, mItemView);
     }
 
-    @Override
-    public void setData(final VideoEntity data) {
-        int position = getAdapterPosition();
+   @Override
+    public void setData(VideoEntity.ResultsEntity data, int position) {
         //增加封面
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -55,10 +51,9 @@ public class VideoHolder extends BaseHolder<VideoEntity> {
         }
         gsyVideoPlayer.setThumbImageView(imageView);
 
-        final String url = data.getVideo_url();
-
+        String  url =data.url;
         //默认缓存路径
-        gsyVideoPlayer.setUp(url, true , null, "这是title");
+        gsyVideoPlayer.setUp(url, true , null, data.desc);
 
         //增加title
         gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
@@ -119,5 +114,6 @@ public class VideoHolder extends BaseHolder<VideoEntity> {
     private void resolveFullBtn(final StandardGSYVideoPlayer standardGSYVideoPlayer) {
         standardGSYVideoPlayer.startWindowFullscreen(mContext, true, true);
     }
+
 
 }

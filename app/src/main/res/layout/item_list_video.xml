@@ -3,9 +3,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+    <TextView android:id="@+id/tv_video_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    />
+
     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:layout_marginTop="10dp"
         android:id="@+id/video_item_player"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/post_media_height"/>
+        android:layout_height="@dimen/post_media_height"
+        android:layout_below="@+id/tv_video_title"
+        />
 
 </RelativeLayout>

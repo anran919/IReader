@@ -12,7 +12,7 @@ public class QuestionsHolder extends BaseHolder<String> {
     }
 
     @Override
-    public  void setData(String data) {
+    public  void setData(String data, int position) {
 
     }
 }

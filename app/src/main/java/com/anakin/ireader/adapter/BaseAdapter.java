@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.anakin.ireader.adapter.holder.BaseHolder;
+import com.anakin.ireader.utils.L;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
     @Override
     public void onBindViewHolder(BaseHolder<T> holder, int position) {
         T t = datas.get(position);
-        holder.setData(t);
+        holder.setData(t,position);
     }
 
 

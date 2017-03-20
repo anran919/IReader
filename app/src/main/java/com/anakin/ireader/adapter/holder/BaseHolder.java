@@ -1,7 +1,6 @@
 package com.anakin.ireader.adapter.holder;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.anakin.ireader.interf.OnItemClickListener;
@@ -28,7 +27,7 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
 
     }
 
-    public abstract void setData(T data);
+    public abstract void setData(T data, int position);
 
     public void setLongClickListener(OnItemLongClickListener listener) {
         mLongClickListener = listener;
