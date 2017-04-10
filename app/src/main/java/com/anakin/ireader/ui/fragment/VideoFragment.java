@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.VideoAdapter;
 import com.anakin.ireader.adapter.holder.VideoHolder;
+import com.anakin.ireader.di.component.DaggerVideoComponent;
+import com.anakin.ireader.di.module.VideoModule;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;
 import com.anakin.ireader.ui.view.IVideoView;
@@ -23,6 +25,8 @@ import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.ListVideoUtil;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,7 +44,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     @Bind(R.id.video_full_container)
     FrameLayout videoFullContainer;
 
-//    @Inject
+    @Inject
     VideoPresenter presenter;
 
     private ListVideoUtil mVideoUtil;
@@ -83,15 +87,11 @@ public class VideoFragment extends BaseFragment implements IVideoView {
 
 
         // Dagger2
+        DaggerVideoComponent.builder()
+                .videoModule(new VideoModule(this))
+                .build()
+                .inject(this);
 
-
-//        DaggerVideoComponent.builder()
-//                .videoModule(new VideoModule(this))
-//                .build()
-//                .inject(this);
-
-
-        presenter = new VideoPresenter(this);
         presenter.getThings();
     }
 

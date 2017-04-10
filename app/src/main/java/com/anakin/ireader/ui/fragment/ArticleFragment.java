@@ -1,7 +1,6 @@
 package com.anakin.ireader.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,14 +11,17 @@ import android.widget.Toast;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
+import com.anakin.ireader.di.component.DaggerArticleComponent;
+import com.anakin.ireader.di.module.ArticleModule;
 import com.anakin.ireader.helper.ArticleItemDecoration;
 import com.anakin.ireader.model.entity.ListItem;
-import com.anakin.ireader.presenter.impl.ArticlePresenter;
-import com.anakin.ireader.presenter.ListPresenter;
-import com.anakin.ireader.ui.view.ArticleView;
+import com.anakin.ireader.presenter.impl.ArticlPresenter;
+import com.anakin.ireader.ui.view.IArticleView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,7 +30,7 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:43
  */
-public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener ,ArticleView {
+public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, IArticleView {
     private static final ArticleFragment ARTICLE_FRAGMENT = new ArticleFragment();
     private static final String TAG = "ArticleFragment";
     @Bind(R.id.recyclerview_articel)
@@ -38,7 +40,9 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     List<String> datas;
     private ArticleAdapter mArticleAdapter;
     private LinearLayoutManager mLayoutManager;
-    private ListPresenter mPresenter;
+
+    @Inject
+    ArticlPresenter mPresenter;
 
 
     @Override
@@ -55,8 +59,13 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     private void initPresenter() {
-        mPresenter = ArticlePresenter.getInstance();
-        mPresenter.attachView(this);
+
+        DaggerArticleComponent.builder()
+                .articleModule(new ArticleModule(this))
+                .build()
+                .inject(this);
+
+        mPresenter.getArticls();
     }
 
     private void initRecyclerView() {
@@ -68,17 +77,10 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mArticleAdapter = new ArticleAdapter(mContext, datas, R.layout.item_article);
-        ArticleItemDecoration  decoration = new ArticleItemDecoration();
+        ArticleItemDecoration decoration = new ArticleItemDecoration();
         mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setAdapter(mArticleAdapter);
         mRecyclerView.setVerticalScrollBarEnabled(true);
-    }
-
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mPresenter.loadListDates();
     }
 
 
