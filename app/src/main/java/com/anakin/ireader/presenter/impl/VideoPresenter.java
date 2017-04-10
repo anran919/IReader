@@ -7,6 +7,8 @@ import com.anakin.ireader.ui.fragment.VideoFragment;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * 创建者     demo
  * 创建时间   2016/12/19 0019 15:18
@@ -15,6 +17,7 @@ public class VideoPresenter implements IVideoPresenter, OnVideoListener {
     VideoFragment mVideoFragment;
     private final VideoModel mModel;
 
+    @Inject
     public VideoPresenter(VideoFragment videoFragment) {
         this.mVideoFragment = videoFragment;
         mModel = new VideoModel();

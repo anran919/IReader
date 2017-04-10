@@ -20,6 +20,9 @@ android {
     }
 }
 
+//应用apt插件
+apply plugin: 'com.neenbedankt.android-apt'
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
@@ -37,8 +40,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     
     compile 'com.jakewharton:butterknife:7.0.1'
-    //图片加载
 
+    //图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile files('src/main/libs/ormlite-android-5.0.jar')
     compile files('src/main/libs/ormlite-core-5.0.jar')
@@ -48,6 +51,12 @@ dependencies {
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
     //点击查看大图
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
+
+    //引入dagger2
+    compile 'com.google.dagger:dagger:2.4'
+    apt 'com.google.dagger:dagger-compiler:2.4'
+    //java注解
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
 
 }

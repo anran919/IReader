@@ -14,13 +14,16 @@ import android.widget.Toast;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.PictureAdapter;
+import com.anakin.ireader.di.component.DaggerPictureComponent;
+import com.anakin.ireader.di.module.PictureModule;
 import com.anakin.ireader.model.entity.PictureEntity;
-import com.anakin.ireader.presenter.PicturePresenter;
-import com.anakin.ireader.presenter.impl.PicturePresenterImpl;
-import com.anakin.ireader.ui.view.PictureView;
+import com.anakin.ireader.presenter.impl.PicturePresenter;
+import com.anakin.ireader.ui.view.IPictureView;
 import com.anakin.ireader.widget.PictureItemDecoration;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,18 +32,21 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:43
  */
-public class PictureFragment extends BaseFragment implements PictureView, SwipeRefreshLayout.OnRefreshListener {
+public class PictureFragment extends BaseFragment implements IPictureView, SwipeRefreshLayout.OnRefreshListener {
     private static final PictureFragment PICTURE_FRAGMENT = new PictureFragment();
     private static final String TAG = "PictureFragment";
     @Bind(R.id.recyclerview_articel)
     RecyclerView mRecyclerView;
     @Bind(R.id.swrfresh)
     SwipeRefreshLayout mSwrfresh;
-    private PicturePresenter mPresenter;
+
+    @Inject
+    PicturePresenter mPresenter;
+
     private ProgressDialog mProgressDialog;
     private StaggeredGridLayoutManager mManager;
 
-    private PictureFragment() {
+    public PictureFragment() {
     }
 
     @Override
@@ -66,7 +72,11 @@ public class PictureFragment extends BaseFragment implements PictureView, SwipeR
         //设置下拉刷新的监听
         mSwrfresh.setOnRefreshListener(this);
 
-        mPresenter = new PicturePresenterImpl(this);
+        // Dagger2
+       DaggerPictureComponent.builder()
+               .pictureModule(new PictureModule(this))
+               .build()
+               .inject(this);
 
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle("一大波妹子正在袭来.....");

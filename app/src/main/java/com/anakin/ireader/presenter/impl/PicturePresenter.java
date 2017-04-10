@@ -3,39 +3,43 @@ package com.anakin.ireader.presenter.impl;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.model.impl.PictureModelImpl;
 import com.anakin.ireader.presenter.OnPictureListener;
-import com.anakin.ireader.presenter.PicturePresenter;
-import com.anakin.ireader.ui.view.PictureView;
+import com.anakin.ireader.presenter.IPicturePresenter;
+import com.anakin.ireader.ui.view.IPictureView;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * 创建者     demo
  * 创建时间   2016/11/23 0023 15:19
  */
-public class PicturePresenterImpl implements PicturePresenter, OnPictureListener {
-    PictureView pictureView;
+public class PicturePresenter implements IPicturePresenter, OnPictureListener {
     private PictureModelImpl mModel;
 
-    public PicturePresenterImpl(PictureView pictureView) {
-        this.pictureView = pictureView;
+    private IPictureView mPv;
+
+    @Inject
+    public PicturePresenter(IPictureView pv) {
+        this.mPv = pv;
         mModel = new PictureModelImpl();
     }
 
     @Override
     public void onSuccess(List<PictureEntity.ResultsEntity> results) {
-        pictureView.hideProgress();
-        pictureView.showData(results);
+        mPv.hideProgress();
+        mPv.showData(results);
     }
 
     @Override
     public void onFail() {
-        pictureView.hideProgress();
-        pictureView.showErroMsg();
+        mPv.hideProgress();
+        mPv.showErroMsg();
     }
 
     @Override
     public void getPicture(int count, int page) {
-        pictureView.showProgress();
+        mPv.showProgress();
         mModel.loadPicture(count, page, this);
     }
 }

@@ -29,7 +29,7 @@ public class MoviesModelImpl implements MoviesModel {
     @Override
     public void loadMovies(int start, int count, final OnMoviesListener moviesListener) {
         // 加载数据
-//        String baseUrl = "https://api.douban.com/v2/movie/";
+//        String baseUrl = "https://api.douban.com/v2/movie/top250/1/10";
         String baseUrl = "https://api.douban.com/v2/movie/";
 
         Retrofit retrofit = new Retrofit.Builder()

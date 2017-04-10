@@ -17,7 +17,6 @@ import com.anakin.ireader.adapter.holder.VideoHolder;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;
 import com.anakin.ireader.ui.view.IVideoView;
-import com.anakin.ireader.utils.L;
 import com.anakin.ireader.widget.VideoItemDecoration;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
@@ -40,6 +39,10 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     RecyclerView list;
     @Bind(R.id.video_full_container)
     FrameLayout videoFullContainer;
+
+//    @Inject
+    VideoPresenter presenter;
+
     private ListVideoUtil mVideoUtil;
     private VideoAdapter mAdapter;
 
@@ -78,7 +81,17 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         //mVideoUtil.setHideActionBar(true);
         mVideoUtil.setNeedLockFull(true);
 
-        VideoPresenter presenter = new VideoPresenter(this);
+
+        // Dagger2
+
+
+//        DaggerVideoComponent.builder()
+//                .videoModule(new VideoModule(this))
+//                .build()
+//                .inject(this);
+
+
+        presenter = new VideoPresenter(this);
         presenter.getThings();
     }
 

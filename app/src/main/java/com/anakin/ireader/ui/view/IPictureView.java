@@ -10,7 +10,7 @@ import java.util.List;
  * <p>
  * 处理界面的显示,包括显示隐藏进度条,显示数据,错误时显示错误信息
  */
-public interface PictureView {
+public interface IPictureView {
     void showProgress();
 
     void hideProgress();
