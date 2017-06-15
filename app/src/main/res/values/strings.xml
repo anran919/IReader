@@ -9,7 +9,6 @@
     <string name="action_settings3">设置</string>
     <string name="action_edit">编辑</string>
     <string name="action_share">分享</string>
-    <string name="action_settings4">三年</string>
     <string name="things">东西</string>
     <string name="images">图片</string>
     <string name="questions">问题</string>
@@ -21,5 +20,6 @@
         毕竟所有怀念都源于世事更迭的不再拥有。不知需要多久你才能明白，对往日虔诚默哀，
         远比缅怀有力。 by 张瑞琪
     </string>
-    <string name="load_fail">"加载数据失败"</string>
+    <string name="load_fail">加载数据失败</string>
+    <string name="action_settings4">i\'am</string>
 </resources>

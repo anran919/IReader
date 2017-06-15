@@ -85,7 +85,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         //mVideoUtil.setHideActionBar(true);
         mVideoUtil.setNeedLockFull(true);
 
-
         // Dagger2
         DaggerVideoComponent.builder()
                 .videoModule(new VideoModule(this))

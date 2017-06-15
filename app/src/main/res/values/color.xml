@@ -31,4 +31,21 @@
     <color name="holo_blue_bright">#ff00ddff</color>
     <!-- A really bright Holo shade of gray -->
     <color name="holo_gray_bright">#33CCCCCC</color>
+
+
+    <!--floating action button color-->
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+
+    <color name="green">#8006f53a</color>
+    <color name="green_pressed">#8008e105</color>
+    <color name="blue">#800335fc</color>
+    <color name="blue_pressed">#80253fa4</color>
 </resources>

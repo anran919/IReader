@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.getbase.floatingactionbutton.FloatingActionsMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fab"
+    fab:fab_addButtonColorNormal="@color/pink"
+    fab:fab_addButtonColorPressed="@color/pink_pressed"
+    fab:fab_addButtonPlusIconColor="@color/half_black"
+    fab:fab_labelStyle="@style/menu_labels_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="@dimen/fab_margin"
+>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/action_a"
+        fab:fab_colorNormal="@color/green"
+        fab:fab_colorPressed="@color/green_pressed"
+        fab:fab_title="Action A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/action_b"
+        fab:fab_colorNormal="@color/blue"
+        fab:fab_colorPressed="@color/blue_pressed"
+        fab:fab_title="Action with a very long name that won\'t fit on the screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/action_enable"
+        fab:fab_colorNormal="@color/white"
+        fab:fab_colorPressed="@color/white_pressed"
+        fab:fab_title="Set bottom menu enabled/disabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</com.getbase.floatingactionbutton.FloatingActionsMenu>

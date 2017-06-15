@@ -2,9 +2,7 @@ package com.anakin.ireader;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -21,11 +19,16 @@ import android.widget.Toast;
 
 import com.anakin.ireader.adapter.ContentPagerAdapter;
 import com.anakin.ireader.constants.PagerConfig;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
+import static com.anakin.ireader.R.id.toolbar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
     private TabLayout mTab;
     private ViewPager mViewPager;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,64 @@ public class MainActivity extends AppCompatActivity
         }
         super.onCreate(savedInstanceState);
         initView();
+        initToolbar();
         initViewPager();
+        initFloatingActionButton();
+    }
+
+    private void initToolbar() {
+        // toolbar
+        mToolbar = (Toolbar) findViewById(toolbar);
+        setSupportActionBar(mToolbar);
+        mToolbar.setOnMenuItemClickListener(this);   // toolbar 监听
+        mTab = (TabLayout) findViewById(R.id.tabs);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);  //DrawerLayout
+        // 左侧菜单的开关监听
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    private void initFloatingActionButton() {
+        final View actionB = findViewById(R.id.action_b);
+        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
+        actionC.setTitle("Hide/Show Action above");
+        actionC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+            }
+        });
+        final FloatingActionsMenu fab = (FloatingActionsMenu) findViewById(R.id.fab);
+        fab.addButton(actionC);
+        final FloatingActionButton actionEnable = (FloatingActionButton) findViewById(R.id.action_enable);
+        actionEnable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fab.setEnabled(!fab.isEnabled());
+            }
+        });
+
+    }
+
+    private void initView() {
+        setContentView(R.layout.activity_main);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager_activity_main);
+        // 左侧菜单导航的头
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
 
@@ -50,49 +110,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-    private void initView() {
-        setContentView(R.layout.activity_main);
-        mViewPager = (ViewPager) findViewById(R.id.viewpager_activity_main);
-        mTab = (TabLayout) findViewById(R.id.tabs);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);  //悬浮按钮
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);    // toolbar
-        setSupportActionBar(toolbar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "我是SnackBar ^_^", Snackbar.LENGTH_LONG)
-                        .setAction("设置Action", null).show();
-            }
-        });
-
-        toolbar.setOnMenuItemClickListener(this);   // toolbar 监听
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);  //DrawerLayout
-        // 左侧菜单的开关监听
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-
-            }
-        };
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-
-        // 左侧菜单导航的头
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -102,8 +119,10 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     /**
      * 左侧菜单的点击事件
+     *
      * @param item
      * @return
      */
@@ -140,6 +159,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * 更多菜单的展开menu
+     *
      * @param menu
      * @return
      */
@@ -152,6 +172,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * 右侧更多选项的点击事件
+     *
      * @param menuItem
      * @return
      */
