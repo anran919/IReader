@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 /**
  * Created by demo on 2017/3/20 0020
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity  {
     public Context mContext;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

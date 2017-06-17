@@ -14,27 +14,22 @@
 >
 
     <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_a"
+        android:id="@+id/fab_action_camera"
         fab:fab_colorNormal="@color/green"
         fab:fab_colorPressed="@color/green_pressed"
-        fab:fab_title="Action A"
+        fab:fab_icon="@android:drawable/ic_menu_camera"
+        fab:fab_title="@string/action_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_b"
+        android:id="@+id/fab_action_share"
         fab:fab_colorNormal="@color/blue"
         fab:fab_colorPressed="@color/blue_pressed"
-        fab:fab_title="Action with a very long name that won\'t fit on the screen"
+        fab:fab_icon="@android:drawable/ic_menu_share"
+        fab:fab_title="@string/action_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_enable"
-        fab:fab_colorNormal="@color/white"
-        fab:fab_colorPressed="@color/white_pressed"
-        fab:fab_title="Set bottom menu enabled/disabled"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 </com.getbase.floatingactionbutton.FloatingActionsMenu>

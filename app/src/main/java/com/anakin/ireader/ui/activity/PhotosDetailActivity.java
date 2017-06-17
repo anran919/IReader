@@ -39,7 +39,5 @@ public class PhotosDetailActivity extends BaseActivity {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .error(R.mipmap.picture_error_pic)
                 .crossFade().into(mPhotoView);
-
-
     }
 }

@@ -1,57 +1,71 @@
 package com.anakin.ireader;
 
-import android.os.Build;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Toast;
 
 import com.anakin.ireader.adapter.ContentPagerAdapter;
 import com.anakin.ireader.constants.PagerConfig;
+import com.anakin.ireader.ui.activity.BaseActivity;
+import com.anakin.ireader.utils.ShareUtils;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
-import static com.anakin.ireader.R.id.toolbar;
+import butterknife.Bind;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
-    private TabLayout mTab;
-    private ViewPager mViewPager;
-    private Toolbar mToolbar;
+public class MainActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener, View.OnClickListener {
+
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final String TAG = "MainActivity";
+    @Bind(R.id.viewpager_activity_main)
+    ViewPager mViewPager;
+    @Bind(R.id.tabs)
+    TabLayout mTab;
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
+    @Bind(R.id.fab_action_share)
+    FloatingActionButton mShare;
+    @Bind(R.id.fab_action_camera)
+    FloatingActionButton mCamera;
+    @Bind(R.id.fab)
+    FloatingActionsMenu mFatMenu;
+    private Bitmap mImageBitmap;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // 设置一个exit transition
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            window.setEnterTransition(new Explode());
-            window.setExitTransition(new Explode());
-        }
-        super.onCreate(savedInstanceState);
-        initView();
+    public void initView() {
+        // 左侧菜单导航的头
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         initToolbar();
         initViewPager();
         initFloatingActionButton();
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+
     private void initToolbar() {
         // toolbar
-        mToolbar = (Toolbar) findViewById(toolbar);
         setSupportActionBar(mToolbar);
         mToolbar.setOnMenuItemClickListener(this);   // toolbar 监听
-        mTab = (TabLayout) findViewById(R.id.tabs);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);  //DrawerLayout
         // 左侧菜单的开关监听
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -72,33 +86,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initFloatingActionButton() {
-        final View actionB = findViewById(R.id.action_b);
-        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
-        actionC.setTitle("Hide/Show Action above");
-        actionC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-            }
-        });
-        final FloatingActionsMenu fab = (FloatingActionsMenu) findViewById(R.id.fab);
-        fab.addButton(actionC);
-        final FloatingActionButton actionEnable = (FloatingActionButton) findViewById(R.id.action_enable);
-        actionEnable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fab.setEnabled(!fab.isEnabled());
-            }
-        });
-
-    }
-
-    private void initView() {
-        setContentView(R.layout.activity_main);
-        mViewPager = (ViewPager) findViewById(R.id.viewpager_activity_main);
-        // 左侧菜单导航的头
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mShare.setOnClickListener(this);
+        mCamera.setOnClickListener(this);
     }
 
 
@@ -196,4 +185,33 @@ public class MainActivity extends AppCompatActivity
         }
         return true;
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.fab_action_share:
+                ShareUtils.getInstance(this).showShare();
+                break;
+            case R.id.fab_action_camera:
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+                break;
+
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Log.d(TAG," request code "+ requestCode);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            mImageBitmap = (Bitmap) extras.get("data");
+            Log.d(TAG," mImageBitmap"+ mImageBitmap.toString());
+//            mThumbView.setImageBitmap(mImageBitmap);
+        }
+    }
+
 }

@@ -30,17 +30,13 @@ dependencies {
     compile 'com.android.support:design:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.android.support:cardview-v7:24.2.0'
-
-
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
     compile 'com.google.code.gson:gson:2.6.2'
-    
     compile 'com.jakewharton:butterknife:7.0.1'
-
     //图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile files('src/main/libs/ormlite-android-5.0.jar')
@@ -51,14 +47,50 @@ dependencies {
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
     //点击查看大图
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
-
     //引入dagger2
     compile 'com.google.dagger:dagger:2.4'
     apt 'com.google.dagger:dagger-compiler:2.4'
     //java注解
     provided 'org.glassfish:javax.annotation:10.0-b28'
-
     // floatingactionbutton
     compile 'com.getbase:floatingactionbutton:1.10.1'
-
+    compile files('src/main/libs/ShareSDK-Youtube-3.0.0.jar')
+    compile files('src/main/libs/MobCommons-2017.0608.1618.jar')
+    compile files('src/main/libs/ShareSDK-Alipay-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Alipay-Core-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Alipay-Moments-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Core-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Dingding-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Douban-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Dropbox-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Email-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Evernote-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-KakaoTalk-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Line-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Linkedin-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Meipai-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Mingdao-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Pinterest-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Pocket-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-QQ-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-QZone-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Renren-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-ShortMessage-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-SinaWeibo-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Twitter-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Wechat-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Wechat-Core-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Wechat-Favorite-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Wechat-Moments-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Facebook-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-FacebookMessenger-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Flickr-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Foursquare-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-GooglePlus-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Instagram-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Instapaper-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-KaiXin-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-Kakao-Core-3.0.0.jar')
+    compile files('src/main/libs/ShareSDK-KakaoStory-3.0.0.jar')
+    compile files('src/main/libs/MobTools-2017.0608.1618.jar')
 }

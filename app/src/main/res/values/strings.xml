@@ -22,4 +22,5 @@
     </string>
     <string name="load_fail">加载数据失败</string>
     <string name="action_settings4">i\'am</string>
+    <string name="action_camera">相机</string>
 </resources>
