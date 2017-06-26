@@ -5,5 +5,5 @@ package com.anakin.ireader.presenter;
  * 创建时间   2016/12/19 0019 15:13
  */
 public interface IVideoPresenter {
-    void getThings();  // 在View中调用传递View中的参数到Presenter
+    void getVideos();  // 在View中调用传递View中的参数到Presenter
 }

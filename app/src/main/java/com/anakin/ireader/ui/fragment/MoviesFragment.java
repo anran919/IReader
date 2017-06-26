@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.anakin.ireader.R;
-import com.anakin.ireader.adapter.MovicesAdapter;
+import com.anakin.ireader.adapter.MoviesAdapter;
 import com.anakin.ireader.model.entity.MovieEntity;
 import com.anakin.ireader.presenter.impl.MoviesPresenterImpl;
 import com.anakin.ireader.ui.view.MoviesView;
@@ -38,7 +38,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     private ProgressDialog mProgressDialog;
     private MoviesPresenterImpl mMoviesPresenter;
     private boolean isRefresh;
-    private MovicesAdapter mMovicesAdapter;
+    private MoviesAdapter mMovicesAdapter;
     private List<MovieEntity.SubjectsEntity> mSubjects;
     private LinearLayoutManager mManager;
 
@@ -47,7 +47,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
 
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_articel, container, false);
+        View rootView = inflater.inflate(R.layout.fregment_article, container, false);
         ButterKnife.bind(this, rootView);
         initView();
         return rootView;
@@ -84,25 +84,10 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     }
 
     @Override
-    public void showLoading() {
-        mProgressDialog.show();
-    }
-
-    @Override
-    public void hideLoading() {
-        mProgressDialog.dismiss();
-    }
-
-    @Override
-    public void showError() {
-        Toast.makeText(mContext, "加载数据失败", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void setMoviesInfo(MovieEntity movieEntity) {
         // 设置数据
         mSubjects = movieEntity.getSubjects();
-        mMovicesAdapter = new MovicesAdapter(mContext, mSubjects, R.layout.item_movices_us);
+        mMovicesAdapter = new MoviesAdapter(mContext, mSubjects, R.layout.item_movices_us);
         mManager = new LinearLayoutManager(mContext);
         mRecyclerView.setLayoutManager(mManager);
         mRecyclerView.setAdapter(mMovicesAdapter);
@@ -131,5 +116,20 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
 //            }, 4000);
 //        }
 
+    }
+
+    @Override
+    public void showProgress() {
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+        Toast.makeText(mContext, "加载数据失败", Toast.LENGTH_SHORT).show();
     }
 }

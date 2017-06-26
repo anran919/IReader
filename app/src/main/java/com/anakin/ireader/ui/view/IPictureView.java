@@ -10,13 +10,8 @@ import java.util.List;
  * <p>
  * 处理界面的显示,包括显示隐藏进度条,显示数据,错误时显示错误信息
  */
-public interface IPictureView {
-    void showProgress();
+public interface IPictureView extends BaseView{
 
-    void hideProgress();
-
-    void showData(List<PictureEntity.ResultsEntity> results);
-
-    void showErroMsg();
+    void showPicture(List<PictureEntity.ResultsEntity> results);
 
 }

@@ -15,7 +15,7 @@ import com.anakin.ireader.di.component.DaggerArticleComponent;
 import com.anakin.ireader.di.module.ArticleModule;
 import com.anakin.ireader.helper.ArticleItemDecoration;
 import com.anakin.ireader.model.entity.ListItem;
-import com.anakin.ireader.presenter.impl.ArticlPresenter;
+import com.anakin.ireader.presenter.impl.ArticlePresenter;
 import com.anakin.ireader.ui.view.IArticleView;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:43
  */
-public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, IArticleView {
+public class ArticleFragment extends BaseFragment implements IArticleView {
     private static final ArticleFragment ARTICLE_FRAGMENT = new ArticleFragment();
     private static final String TAG = "ArticleFragment";
     @Bind(R.id.recyclerview_articel)
@@ -42,12 +42,12 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     private LinearLayoutManager mLayoutManager;
 
     @Inject
-    ArticlPresenter mPresenter;
+    ArticlePresenter mPresenter;
 
 
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_articel, container, false);
+        View rootView = inflater.inflate(R.layout.fregment_article, container, false);
         ButterKnife.bind(this, rootView);
         initData();
         return rootView;
@@ -65,7 +65,7 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
                 .build()
                 .inject(this);
 
-        mPresenter.getArticls();
+        mPresenter.getArticles();
     }
 
     private void initRecyclerView() {
@@ -96,8 +96,9 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
         Toast.makeText(mContext, "刷新数据", Toast.LENGTH_SHORT).show();
     }
 
+
     @Override
-    public void showDatas(List<ListItem> dailies) {
+    public void showArticle(List<ListItem> dailies) {
 
     }
 
@@ -112,7 +113,9 @@ public class ArticleFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     @Override
-    public void showMsg(String msg) {
+    public void showErrorMsg(String msg) {
 
     }
+
+
 }

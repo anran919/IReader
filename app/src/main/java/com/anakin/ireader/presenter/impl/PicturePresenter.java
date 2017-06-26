@@ -28,13 +28,13 @@ public class PicturePresenter implements IPicturePresenter, OnPictureListener {
     @Override
     public void onSuccess(List<PictureEntity.ResultsEntity> results) {
         mPv.hideProgress();
-        mPv.showData(results);
+        mPv.showPicture(results);
     }
 
     @Override
     public void onFail() {
         mPv.hideProgress();
-        mPv.showErroMsg();
+        mPv.showErrorMsg(null);
     }
 
     @Override

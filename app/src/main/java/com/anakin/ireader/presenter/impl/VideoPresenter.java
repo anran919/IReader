@@ -26,21 +26,21 @@ public class VideoPresenter implements IVideoPresenter, OnVideoListener {
      * view 中传递参数
      */
     @Override
-    public void getThings() {
-        mVideoView.showLoading();
+    public void getVideos() {
+        mVideoView.showProgress();
         mModel.getVideo(this);
     }
 
     @Override
     public void onSuccess(List<VideoEntity.ResultsEntity> entity) {
-        mVideoView.hideLoading();
+        mVideoView.hideProgress();
         mVideoView.showVideos(entity);
     }
 
     @Override
     public void onFail() {
-        mVideoView.hideLoading();
-        mVideoView.showError();
+        mVideoView.hideProgress();
+        mVideoView.showErrorMsg(null);
     }
 
 

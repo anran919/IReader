@@ -28,4 +28,8 @@ public class QuestionsFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onRefresh() {
+
+    }
 }

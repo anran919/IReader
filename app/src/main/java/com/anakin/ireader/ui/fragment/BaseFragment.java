@@ -1,15 +1,13 @@
 package com.anakin.ireader.ui.fragment;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.transition.Explode;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 
 import butterknife.ButterKnife;
 
@@ -17,7 +15,7 @@ import butterknife.ButterKnife;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 14:44
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     public Context mContext;
 
     @Nullable

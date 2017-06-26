@@ -56,7 +56,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_things, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -91,23 +91,9 @@ public class VideoFragment extends BaseFragment implements IVideoView {
                 .build()
                 .inject(this);
 
-        presenter.getThings();
+        presenter.getVideos();
     }
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showError() {
-        Toast.makeText(mContext,R.string.load_fail,Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void showVideos(List<VideoEntity.ResultsEntity> entity) {
@@ -163,5 +149,25 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     public void onDestroy() {
         super.onDestroy();
         GSYVideoPlayer.releaseAllVideos();
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+        Toast.makeText(mContext,R.string.load_fail,Toast.LENGTH_SHORT).show();
     }
 }

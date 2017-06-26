@@ -51,7 +51,7 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
 
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_picture, container, false);
+        View rootView = inflater.inflate(R.layout.fregment_article, container, false);
         ButterKnife.bind(this, rootView);
         initView();
         return rootView;
@@ -103,18 +103,7 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
     }
 
     @Override
-    public void showData(List<PictureEntity.ResultsEntity> results) {
-        PictureAdapter adapter = new PictureAdapter(mContext, results, R.layout.item_picture);
-        mManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(mManager);
-        mRecyclerView.setAdapter(adapter);
-        PictureItemDecoration decor = new PictureItemDecoration(5);
-        mRecyclerView.addItemDecoration(decor);
-
-    }
-
-    @Override
-    public void showErroMsg() {
+    public void showErrorMsg(String msg) {
         Toast.makeText(mContext, "妹子不见了...(┬＿┬)", Toast.LENGTH_SHORT).show();
     }
 
@@ -122,5 +111,15 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
     @Override
     public void onRefresh() {
 
+    }
+
+    @Override
+    public void showPicture(List<PictureEntity.ResultsEntity> results) {
+        PictureAdapter adapter = new PictureAdapter(mContext, results, R.layout.item_picture);
+        mManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mManager);
+        mRecyclerView.setAdapter(adapter);
+        PictureItemDecoration decor = new PictureItemDecoration(5);
+        mRecyclerView.addItemDecoration(decor);
     }
 }
