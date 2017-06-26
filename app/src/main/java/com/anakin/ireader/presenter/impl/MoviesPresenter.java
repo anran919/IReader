@@ -1,24 +1,24 @@
 package com.anakin.ireader.presenter.impl;
 
-import com.anakin.ireader.model.MoviesModel;
+import com.anakin.ireader.model.IMoviesModel;
 import com.anakin.ireader.model.entity.MovieEntity;
-import com.anakin.ireader.model.impl.MoviesModelImpl;
-import com.anakin.ireader.presenter.MoviesPresenter;
-import com.anakin.ireader.presenter.OnMoviesListener;
+import com.anakin.ireader.model.impl.MoviesModel;
+import com.anakin.ireader.presenter.IMoviesPresenter;
+import com.anakin.ireader.presenter.listener.OnMoviesListener;
 import com.anakin.ireader.ui.view.MoviesView;
 
 /**
  * 创建者     demo
  * 创建时间   2016/11/22 0022 14:41
  */
-public class MoviesPresenterImpl implements MoviesPresenter, OnMoviesListener {
-    private static final String TAG = "MoviesPresenterImpl";
+public class MoviesPresenter implements IMoviesPresenter, OnMoviesListener {
+    private static final String TAG = "MoviesPresenter";
     MoviesView mMoviesView;
-    private final MoviesModel mMoviesModel;
+    private final IMoviesModel mMoviesModel;
 
-    public MoviesPresenterImpl(MoviesView moviesView) {
+    public MoviesPresenter(MoviesView moviesView) {
         this.mMoviesView = moviesView;  //获取view 实例
-        mMoviesModel = new MoviesModelImpl();  // 获取model实例
+        mMoviesModel = new MoviesModel();  // 获取model实例
     }
 
     @Override
@@ -33,10 +33,10 @@ public class MoviesPresenterImpl implements MoviesPresenter, OnMoviesListener {
         mMoviesView.setMoviesInfo(movieEntity); // 传递结果到view
     }
 
+
     @Override
-    public void OnError() {
+    public void onFail() {
         mMoviesView.hideProgress();
         mMoviesView.showErrorMsg(null);
     }
-
 }

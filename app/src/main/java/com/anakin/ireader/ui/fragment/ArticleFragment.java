@@ -1,6 +1,7 @@
 package com.anakin.ireader.ui.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +25,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * 创建者     demo
@@ -48,13 +48,24 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-        ButterKnife.bind(this, rootView);
-        initData();
+//        ButterKnife.bind(this, rootView);
+//        initData();
         return rootView;
     }
 
-    protected void initData() {
+    @Override
+    protected void initView() {
         initRecyclerView();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initData();
+    }
+
+    protected void initData() {
+
         initPresenter();
     }
 

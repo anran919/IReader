@@ -17,16 +17,25 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     public Context mContext;
+    private View mRootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
-        return inflaterView(inflater, container, savedInstanceState);
+        mRootView = inflaterView(inflater, container, savedInstanceState);
+        return mRootView;
     }
 
     public abstract View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ButterKnife.bind(this, mRootView);
+        initView();
+    }
+
+    protected abstract void initView();
 
     @Override
     public void onAttach(Context context) {

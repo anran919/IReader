@@ -29,7 +29,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * 创建者     demo
@@ -43,7 +42,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     RecyclerView list;
     @Bind(R.id.video_full_container)
     FrameLayout videoFullContainer;
-
     @Inject
     VideoPresenter presenter;
 
@@ -57,9 +55,15 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
-        ButterKnife.bind(this, rootView);
+//        ButterKnife.bind(this, rootView);
         return rootView;
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
 
     private static final VideoFragment THINGS_FRAGMENT = new VideoFragment();
 
@@ -76,6 +80,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         super.onActivityCreated(savedInstanceState);
         initData();
     }
+
 
     private void initData() {
         //视屏相关

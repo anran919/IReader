@@ -2,7 +2,7 @@ package com.anakin.ireader.presenter.impl;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.model.impl.VideoModel;
 import com.anakin.ireader.presenter.IVideoPresenter;
-import com.anakin.ireader.presenter.OnVideoListener;
+import com.anakin.ireader.presenter.listener.OnVideoListener;
 import com.anakin.ireader.ui.view.IVideoView;
 
 import java.util.List;

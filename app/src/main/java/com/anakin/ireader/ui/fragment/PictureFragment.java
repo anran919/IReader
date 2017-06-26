@@ -26,7 +26,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * 创建者     demo
@@ -52,12 +51,12 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-        ButterKnife.bind(this, rootView);
-        initView();
+//        ButterKnife.bind(this, rootView);
+//        initView();
         return rootView;
     }
-
-    private void initView() {
+    @Override
+    public void initView() {
         // 初始化界面
         mSwrfresh.setColorSchemeColors(Color.BLUE,
                 Color.GREEN,

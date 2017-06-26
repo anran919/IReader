@@ -1,8 +1,8 @@
 package com.anakin.ireader.model.impl;
 
-import com.anakin.ireader.model.MoviesModel;
+import com.anakin.ireader.model.IMoviesModel;
 import com.anakin.ireader.model.entity.MovieEntity;
-import com.anakin.ireader.presenter.OnMoviesListener;
+import com.anakin.ireader.presenter.listener.OnMoviesListener;
 import com.anakin.ireader.helper.utils.MoviesService;
 
 import retrofit2.Call;
@@ -15,9 +15,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 创建者     demo
  * 创建时间   2016/11/22 0022 14:39
  */
-public class MoviesModelImpl implements MoviesModel {
+public class MoviesModel implements IMoviesModel {
 
-    private static final String TAG = "MoviesModelImpl";
+    private static final String TAG = "MoviesModel";
 
     /**
      * 获取view中的数据,presenter中的监听
@@ -49,7 +49,7 @@ public class MoviesModelImpl implements MoviesModel {
 
             @Override
             public void onFailure(Call<MovieEntity> call, Throwable t) {
-                moviesListener.OnError();
+                moviesListener.onFail();
 //                resultTV.setText(t.getMessage());
             }
         });

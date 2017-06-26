@@ -1,9 +1,9 @@
 package com.anakin.ireader.model.impl;
 
 import com.anakin.ireader.helper.utils.PictureService;
-import com.anakin.ireader.model.PictureModel;
+import com.anakin.ireader.model.IPictureModel;
 import com.anakin.ireader.model.entity.PictureEntity;
-import com.anakin.ireader.presenter.OnPictureListener;
+import com.anakin.ireader.presenter.listener.OnPictureListener;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 创建者     demo
  * 创建时间   2016/11/23 0023 15:23
  */
-public class PictureModelImpl implements PictureModel {
+public class PictureModel implements IPictureModel {
 
 
     //    http://gank.io/api/data/福利/10/1

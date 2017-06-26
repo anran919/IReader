@@ -1,8 +1,8 @@
 package com.anakin.ireader.presenter.impl;
 
 import com.anakin.ireader.model.entity.PictureEntity;
-import com.anakin.ireader.model.impl.PictureModelImpl;
-import com.anakin.ireader.presenter.OnPictureListener;
+import com.anakin.ireader.model.impl.PictureModel;
+import com.anakin.ireader.presenter.listener.OnPictureListener;
 import com.anakin.ireader.presenter.IPicturePresenter;
 import com.anakin.ireader.ui.view.IPictureView;
 
@@ -15,14 +15,14 @@ import javax.inject.Inject;
  * 创建时间   2016/11/23 0023 15:19
  */
 public class PicturePresenter implements IPicturePresenter, OnPictureListener {
-    private PictureModelImpl mModel;
+    private PictureModel mModel;
 
     private IPictureView mPv;
 
     @Inject
     public PicturePresenter(IPictureView pv) {
         this.mPv = pv;
-        mModel = new PictureModelImpl();
+        mModel = new PictureModel();
     }
 
     @Override

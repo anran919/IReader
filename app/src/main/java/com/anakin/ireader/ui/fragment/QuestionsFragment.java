@@ -23,6 +23,11 @@ public class QuestionsFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_questions, container, false);
     }
 
+    @Override
+    protected void initView() {
+
+    }
+
     public static QuestionsFragment getInstance() {
         return QUESTIONS_FRAGMENT;
     }

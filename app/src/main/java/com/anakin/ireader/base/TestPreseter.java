@@ -7,5 +7,4 @@ package com.anakin.ireader.base;
 public class TestPreseter extends BasePresenter<TestView> {
 
 
-
 }

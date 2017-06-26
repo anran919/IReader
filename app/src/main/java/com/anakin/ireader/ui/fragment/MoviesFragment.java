@@ -15,13 +15,12 @@ import android.widget.Toast;
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.MoviesAdapter;
 import com.anakin.ireader.model.entity.MovieEntity;
-import com.anakin.ireader.presenter.impl.MoviesPresenterImpl;
+import com.anakin.ireader.presenter.impl.MoviesPresenter;
 import com.anakin.ireader.ui.view.MoviesView;
 
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * 创建者     demo
@@ -36,7 +35,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     @Bind(R.id.swrfresh)
     SwipeRefreshLayout mSwrfresh;
     private ProgressDialog mProgressDialog;
-    private MoviesPresenterImpl mMoviesPresenter;
+    private MoviesPresenter mMoviesPresenter;
     private boolean isRefresh;
     private MoviesAdapter mMovicesAdapter;
     private List<MovieEntity.SubjectsEntity> mSubjects;
@@ -48,12 +47,12 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-        ButterKnife.bind(this, rootView);
-        initView();
+//        ButterKnife.bind(this, rootView);
+//        initView();
         return rootView;
     }
-
-    private void initView() {
+    @Override
+    public void initView() {
         mSwrfresh.setColorSchemeColors(Color.BLUE,
                 Color.GREEN,
                 Color.YELLOW,
@@ -67,7 +66,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
         //设置下拉刷新的监听
         mSwrfresh.setOnRefreshListener(this);
 
-        mMoviesPresenter = new MoviesPresenterImpl(this);  // 将View传递到Presenter
+        mMoviesPresenter = new MoviesPresenter(this);  // 将View传递到Presenter
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle("正在查询数据......");
 
