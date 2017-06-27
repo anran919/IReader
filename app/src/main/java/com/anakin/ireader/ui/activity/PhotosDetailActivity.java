@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.anakin.ireader.R;
-import com.anakin.ireader.constants.AppConstant;
+import com.anakin.ireader.helper.constants.AppConstant;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 

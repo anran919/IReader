@@ -3,7 +3,7 @@ package com.anakin.ireader.model.impl;
 import com.anakin.ireader.model.IMoviesModel;
 import com.anakin.ireader.model.entity.MovieEntity;
 import com.anakin.ireader.presenter.listener.OnMoviesListener;
-import com.anakin.ireader.helper.utils.MoviesService;
+import com.anakin.ireader.helper.net.MoviesService;
 
 import retrofit2.Call;
 import retrofit2.Callback;

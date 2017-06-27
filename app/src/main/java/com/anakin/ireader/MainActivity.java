@@ -18,9 +18,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.anakin.ireader.adapter.ContentPagerAdapter;
-import com.anakin.ireader.constants.PagerConfig;
+import com.anakin.ireader.helper.constants.PagerConfig;
 import com.anakin.ireader.ui.activity.BaseActivity;
-import com.anakin.ireader.utils.ShareUtils;
+import com.anakin.ireader.helper.utils.ShareUtils;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 

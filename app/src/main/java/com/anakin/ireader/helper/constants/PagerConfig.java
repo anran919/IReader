@@ -1,4 +1,4 @@
-package com.anakin.ireader.constants;
+package com.anakin.ireader.helper.constants;
 
 /**
  * 创建者     demo

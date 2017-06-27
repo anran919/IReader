@@ -3,8 +3,8 @@ package com.anakin.ireader.adapter.holder;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.anakin.ireader.interf.OnItemClickListener;
-import com.anakin.ireader.interf.OnItemLongClickListener;
+import com.anakin.ireader.listener.OnItemClickListener;
+import com.anakin.ireader.listener.OnItemLongClickListener;
 
 /**
  * 创建者     demo

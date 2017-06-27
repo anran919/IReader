@@ -1,4 +1,4 @@
-package com.anakin.ireader.helper.utils;
+package com.anakin.ireader.helper.net;
 
 import com.anakin.ireader.model.entity.PictureEntity;
 

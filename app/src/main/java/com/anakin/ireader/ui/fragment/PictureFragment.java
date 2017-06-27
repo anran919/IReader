@@ -19,7 +19,7 @@ import com.anakin.ireader.di.module.PictureModule;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.presenter.impl.PicturePresenter;
 import com.anakin.ireader.ui.view.IPictureView;
-import com.anakin.ireader.widget.PictureItemDecoration;
+import com.anakin.ireader.widget.RecyclerViewItemDecoration;
 
 import java.util.List;
 
@@ -118,7 +118,7 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
         mManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mManager);
         mRecyclerView.setAdapter(adapter);
-        PictureItemDecoration decor = new PictureItemDecoration(5);
+        RecyclerViewItemDecoration decor = new RecyclerViewItemDecoration(5,5);
         mRecyclerView.addItemDecoration(decor);
     }
 }

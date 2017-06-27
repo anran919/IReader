@@ -11,8 +11,8 @@ import android.view.View;
 
 import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ContentPagerAdapter;
-import com.anakin.ireader.constants.PagerConfig;
-import com.anakin.ireader.utils.ShareUtils;
+import com.anakin.ireader.helper.constants.PagerConfig;
+import com.anakin.ireader.helper.utils.ShareUtils;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.roughike.bottombar.BottomBar;

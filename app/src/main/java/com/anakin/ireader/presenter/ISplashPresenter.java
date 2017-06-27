@@ -1,6 +1,5 @@
 package com.anakin.ireader.presenter;
 
-import com.anakin.ireader.base.BasePresenter;
 import com.anakin.ireader.ui.view.ISplashView;
 
 /**

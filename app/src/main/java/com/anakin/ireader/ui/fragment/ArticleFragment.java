@@ -14,10 +14,10 @@ import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
 import com.anakin.ireader.di.component.DaggerArticleComponent;
 import com.anakin.ireader.di.module.ArticleModule;
-import com.anakin.ireader.helper.ArticleItemDecoration;
 import com.anakin.ireader.model.entity.ListItem;
 import com.anakin.ireader.presenter.impl.ArticlePresenter;
 import com.anakin.ireader.ui.view.IArticleView;
+import com.anakin.ireader.widget.RecyclerViewItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,7 +88,7 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mArticleAdapter = new ArticleAdapter(mContext, datas, R.layout.item_article);
-        ArticleItemDecoration decoration = new ArticleItemDecoration();
+        RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5,5);
         mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setAdapter(mArticleAdapter);
         mRecyclerView.setVerticalScrollBarEnabled(true);

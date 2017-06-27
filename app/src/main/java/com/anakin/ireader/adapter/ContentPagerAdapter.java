@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.anakin.ireader.constants.PagerConfig;
+import com.anakin.ireader.helper.constants.PagerConfig;
 import com.anakin.ireader.ui.fragment.ArticleFragment;
 import com.anakin.ireader.ui.fragment.PictureFragment;
 import com.anakin.ireader.ui.fragment.QuestionsFragment;

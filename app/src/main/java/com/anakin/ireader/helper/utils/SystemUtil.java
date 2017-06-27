@@ -1,4 +1,4 @@
-package com.anakin.ireader.utils;
+package com.anakin.ireader.helper.utils;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;

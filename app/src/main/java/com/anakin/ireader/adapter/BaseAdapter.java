@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.anakin.ireader.adapter.holder.BaseHolder;
-import com.anakin.ireader.utils.L;
 
 import java.util.List;
 

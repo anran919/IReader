@@ -47,12 +47,15 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-//        ButterKnife.bind(this, rootView);
-//        initView();
         return rootView;
     }
     @Override
     public void initView() {
+        mMoviesPresenter = new MoviesPresenter(this);  // 将View传递到Presenter
+//        initRefreshView();
+    }
+
+    private void initRefreshView() {
         mSwrfresh.setColorSchemeColors(Color.BLUE,
                 Color.GREEN,
                 Color.YELLOW,
@@ -66,10 +69,9 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
         //设置下拉刷新的监听
         mSwrfresh.setOnRefreshListener(this);
 
-        mMoviesPresenter = new MoviesPresenter(this);  // 将View传递到Presenter
+
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle("正在查询数据......");
-
     }
 
     @Override
@@ -119,12 +121,12 @@ public class MoviesFragment extends BaseFragment implements MoviesView, View.OnC
 
     @Override
     public void showProgress() {
-        mProgressDialog.show();
+//        mProgressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        mProgressDialog.dismiss();
+//        mProgressDialog.dismiss();
     }
 
     @Override

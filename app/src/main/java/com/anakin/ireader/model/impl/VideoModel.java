@@ -2,7 +2,7 @@ package com.anakin.ireader.model.impl;
 
 import android.util.Log;
 
-import com.anakin.ireader.helper.utils.VideoService;
+import com.anakin.ireader.helper.net.VideoService;
 import com.anakin.ireader.model.IVideoModel;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;

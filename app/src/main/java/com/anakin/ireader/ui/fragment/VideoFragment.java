@@ -19,7 +19,7 @@ import com.anakin.ireader.di.module.VideoModule;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;
 import com.anakin.ireader.ui.view.IVideoView;
-import com.anakin.ireader.widget.VideoItemDecoration;
+import com.anakin.ireader.widget.RecyclerViewItemDecoration;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.ListVideoUtil;
@@ -106,7 +106,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         mAdapter = new VideoAdapter(mContext,entity, R.layout.item_list_video);
         mLinearLayoutManager = new LinearLayoutManager(mContext);
         list.setLayoutManager(mLinearLayoutManager);
-        list.addItemDecoration(new VideoItemDecoration(0,10));
+        list.addItemDecoration(new RecyclerViewItemDecoration(0,10));
         list.setAdapter(mAdapter);
 
         list.addOnScrollListener(new RecyclerView.OnScrollListener() {

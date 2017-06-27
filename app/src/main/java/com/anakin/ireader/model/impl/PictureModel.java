@@ -1,6 +1,6 @@
 package com.anakin.ireader.model.impl;
 
-import com.anakin.ireader.helper.utils.PictureService;
+import com.anakin.ireader.helper.net.PictureService;
 import com.anakin.ireader.model.IPictureModel;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.presenter.listener.OnPictureListener;
