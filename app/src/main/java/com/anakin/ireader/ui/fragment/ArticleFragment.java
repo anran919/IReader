@@ -19,7 +19,6 @@ import com.anakin.ireader.presenter.impl.ArticlePresenter;
 import com.anakin.ireader.ui.view.IArticleView;
 import com.anakin.ireader.widget.RecyclerViewItemDecoration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -37,7 +36,6 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
     RecyclerView mRecyclerView;
     @Bind(R.id.swrfresh)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    List<String> datas;
     private ArticleAdapter mArticleAdapter;
     private LinearLayoutManager mLayoutManager;
 
@@ -48,8 +46,6 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-//        ButterKnife.bind(this, rootView);
-//        initData();
         return rootView;
     }
 
@@ -65,12 +61,10 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
     }
 
     protected void initData() {
-
         initPresenter();
     }
 
     private void initPresenter() {
-
         DaggerArticleComponent.builder()
                 .articleModule(new ArticleModule(this))
                 .build()
@@ -80,17 +74,11 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
     }
 
     private void initRecyclerView() {
-        datas = new ArrayList<>(80);
-        for (int i = 0; i < 80; i++) {
-            datas.add("黄粱一梦二十年 依旧是不懂爱也不懂情 写歌的人假正经啊 听歌的人最无情" + i);
-        }
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mArticleAdapter = new ArticleAdapter(mContext, datas, R.layout.item_article);
         RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5,5);
         mRecyclerView.addItemDecoration(decoration);
-        mRecyclerView.setAdapter(mArticleAdapter);
         mRecyclerView.setVerticalScrollBarEnabled(true);
     }
 
@@ -110,7 +98,10 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
 
     @Override
     public void showArticle(List<ListItem> dailies) {
+        mArticleAdapter = new ArticleAdapter(mContext, dailies, R.layout.item_article_people_info);
 
+
+        mRecyclerView.setAdapter(mArticleAdapter);
     }
 
     @Override

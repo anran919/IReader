@@ -48,4 +48,9 @@
     <color name="green_pressed">#8008e105</color>
     <color name="blue">#800335fc</color>
     <color name="blue_pressed">#80253fa4</color>
+
+
+    <color name="feed_bg">#f5f5f5</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
 </resources>

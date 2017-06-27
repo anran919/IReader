@@ -51,8 +51,6 @@ public class PictureFragment extends BaseFragment implements IPictureView, Swipe
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fregment_article, container, false);
-//        ButterKnife.bind(this, rootView);
-//        initView();
         return rootView;
     }
     @Override

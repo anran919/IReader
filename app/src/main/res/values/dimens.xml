@@ -7,4 +7,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">64dp</dimen>
     <dimen name="post_media_height">200dp</dimen>
+
+    <!--item_article_people-->
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="feed_item_corner_radius">3dp</dimen>
 </resources>
