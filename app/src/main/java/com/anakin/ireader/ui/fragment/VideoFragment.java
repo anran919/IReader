@@ -47,15 +47,12 @@ public class VideoFragment extends BaseFragment implements IVideoView {
 
     private ListVideoUtil mVideoUtil;
     private VideoAdapter mAdapter;
-
     private LinearLayoutManager mLinearLayoutManager;
 
 
     @Override
     public View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
-//        ButterKnife.bind(this, rootView);
         return rootView;
     }
 

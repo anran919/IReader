@@ -1,4 +1,4 @@
-package com.anakin.ireader.apshare;
+package com.anakin.ireader.share.apshare;
 
 import cn.sharesdk.alipay.utils.AlipayHandlerActivity;
 

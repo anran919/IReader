@@ -1,6 +1,7 @@
 package com.anakin.ireader.model.impl;
 
 import com.anakin.ireader.helper.net.PictureService;
+import com.anakin.ireader.helper.net.api.GankApi;
 import com.anakin.ireader.model.IPictureModel;
 import com.anakin.ireader.model.entity.PictureEntity;
 import com.anakin.ireader.presenter.listener.OnPictureListener;
@@ -19,14 +20,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 创建时间   2016/11/23 0023 15:23
  */
 public class PictureModel implements IPictureModel {
-
-
-    //    http://gank.io/api/data/福利/10/1
     @Override
     public void loadPicture(int count, int page, final OnPictureListener pictureListener) {
-        String baseUrl = "http://gank.io/api/data/福利/";
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(GankApi.Picture.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

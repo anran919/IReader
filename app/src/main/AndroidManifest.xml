@@ -85,7 +85,7 @@
         <meta-data android:name="Mob-AppSecret" android:value="45e5314f8849905c80983b0276d73e83"/>
         <!--微信分享回调 -->
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name=".share.wxapi.WXEntryActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"

@@ -1,5 +1,6 @@
 package com.anakin.ireader.model.impl;
 
+import com.anakin.ireader.helper.net.api.DoubanApi;
 import com.anakin.ireader.model.IMoviesModel;
 import com.anakin.ireader.model.entity.MovieEntity;
 import com.anakin.ireader.presenter.listener.OnMoviesListener;
@@ -29,11 +30,8 @@ public class MoviesModel implements IMoviesModel {
     @Override
     public void loadMovies(int start, int count, final OnMoviesListener moviesListener) {
         // 加载数据
-//        String baseUrl = "https://api.douban.com/v2/movie/top250/1/10";
-        String baseUrl = "https://api.douban.com/v2/movie/";
-
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(DoubanApi.BASE_API)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         MoviesService service = retrofit.create(MoviesService.class);
@@ -54,25 +52,5 @@ public class MoviesModel implements IMoviesModel {
             }
         });
 
-//        Subscriber<MovieEntity> subscriber = new Subscriber<MovieEntity>() {
-//
-//            @Override
-//            public void onCompleted() {
-//                Log.e(TAG, " onCompleted>>>>>>>");
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                weatherListener.OnError();
-//                Log.e(TAG, " onError>>>>>>>" + e.toString());
-//            }
-//
-//            @Override
-//            public void onNext(MovieEntity MovieEntity) {
-//                weatherListener.OnSueeess(MovieEntity);
-//                Log.e(TAG, " onNext>>>>>>>" + MovieEntity.toString());
-//            }
-//        };
-//        new HttpMethods().getWeatherService(subscriber, cityNo);
     }
 }

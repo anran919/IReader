@@ -1,4 +1,4 @@
-package com.anakin.ireader.ddshare;
+package com.anakin.ireader.share.ddshare;
 
 import cn.sharesdk.dingding.utils.DingdingHandlerActivity;
 

@@ -3,6 +3,7 @@ package com.anakin.ireader.model.impl;
 import android.util.Log;
 
 import com.anakin.ireader.helper.net.VideoService;
+import com.anakin.ireader.helper.net.api.GankApi;
 import com.anakin.ireader.model.IVideoModel;
 import com.anakin.ireader.model.entity.VideoEntity;
 import com.anakin.ireader.presenter.impl.VideoPresenter;
@@ -34,10 +35,8 @@ public class VideoModel implements IVideoModel {
     @Override
     public void getVideo(final VideoPresenter presenter ) {
         final List<VideoEntity> videos = new ArrayList<>();
-        // http://gank.io/api/data/休息视频/10/1
-        String baseUrl = "http://gank.io/api/data/休息视频/";
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(GankApi.Video.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
