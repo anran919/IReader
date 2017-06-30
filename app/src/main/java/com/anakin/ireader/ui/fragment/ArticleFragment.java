@@ -14,7 +14,7 @@ import com.anakin.ireader.R;
 import com.anakin.ireader.adapter.ArticleAdapter;
 import com.anakin.ireader.di.component.DaggerArticleComponent;
 import com.anakin.ireader.di.module.ArticleModule;
-import com.anakin.ireader.model.entity.ListItem;
+import com.anakin.ireader.model.entity.ArticleEntity;
 import com.anakin.ireader.presenter.impl.ArticlePresenter;
 import com.anakin.ireader.ui.view.IArticleView;
 import com.anakin.ireader.widget.RecyclerViewItemDecoration;
@@ -97,9 +97,8 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
 
 
     @Override
-    public void showArticle(List<ListItem> dailies) {
-        mArticleAdapter = new ArticleAdapter(mContext, dailies, R.layout.item_article_people_info);
-
+    public void showArticle(List<ArticleEntity> entities) {
+        mArticleAdapter = new ArticleAdapter(mContext, entities, R.layout.item_article_people_info);
 
         mRecyclerView.setAdapter(mArticleAdapter);
     }
@@ -111,7 +110,6 @@ public class ArticleFragment extends BaseFragment implements IArticleView {
 
     @Override
     public void hideProgress() {
-
     }
 
     @Override

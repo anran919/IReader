@@ -7,4 +7,12 @@ package com.anakin.ireader.helper.net.api;
 public class ZhuanLanApi {
     //https://zhuanlan.zhihu.com/api/columns/qinchao
     public static final String ZHUAN_LAN_URL = "https://zhuanlan.zhihu.com";
+
+    public static final String PIC_SIZE_XL = "xl";
+    public static final String PIC_SIZE_XS = "xs";
+    public static final String TEMPLATE_ID = "{id}";
+    public static final String TEMPLATE_SIZE = "{size}";
+
+
+
 }

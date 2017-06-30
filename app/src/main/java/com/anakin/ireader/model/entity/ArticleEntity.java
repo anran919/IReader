@@ -111,7 +111,6 @@ public class ArticleEntity {
              * id : d377edfcb
              * template : https://pic4.zhimg.com/{id}_{size}.jpg
              */
-
             public String id;
             public String template;
         }
@@ -149,6 +148,111 @@ public class ArticleEntity {
         public int postsCount;
         public int id;
         public String name;
+    }
+
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
+
+    public CreatorEntity getCreator() {
+        return creator;
+    }
+
+    public String getActivateState() {
+        return activateState;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public boolean isAcceptSubmission() {
+        return acceptSubmission;
+    }
+
+    public boolean isFirstTime() {
+        return firstTime;
+    }
+
+    public String getPendingName() {
+        return pendingName;
+    }
+
+    public AvatarEntityX getAvatar() {
+        return avatar;
+    }
+
+    public boolean isCanManage() {
+        return canManage;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getNameCanEditUntil() {
+        return nameCanEditUntil;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public int getBanUntil() {
+        return banUntil;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public int getTopicsCanEditUntil() {
+        return topicsCanEditUntil;
+    }
+
+    public String getActivateAuthorRequested() {
+        return activateAuthorRequested;
+    }
+
+    public String getCommentPermission() {
+        return commentPermission;
+    }
+
+    public boolean isFollowing() {
+        return following;
+    }
+
+    public int getPostsCount() {
+        return postsCount;
+    }
+
+    public boolean isCanPost() {
+        return canPost;
+    }
+
+    public List<TopicsEntity> getTopics() {
+        return topics;
+    }
+
+    public List<PostTopicsEntity> getPostTopics() {
+        return postTopics;
+    }
+
+    public List<?> getPendingTopics() {
+        return pendingTopics;
     }
 
     @Override
