@@ -1,7 +1,6 @@
 package com.anakin.ireader.dao;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.misc.TransactionManager;
@@ -51,11 +50,9 @@ public class BaseDao<T, ID> {
     public T insertIfNotExists(T item) {
         T t = null;
         try {
-            Log.e(TAG," ---------------->>>> createIfNotExists "+item );
           t = dao.createIfNotExists(item);
         } catch (SQLException e) {
             e.printStackTrace();
-            Log.e(TAG," ---------------->>>> eee "+e.toString() );
         }
         return t;
     }
@@ -201,6 +198,8 @@ public class BaseDao<T, ID> {
             e.printStackTrace();
         }
     }
+
+
 
 
 }

@@ -8,6 +8,13 @@
     <color name="gray">#393333</color>
     <color name="red">#fc0101</color>
 
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="accentLight">#F4FF81</color>
+
+
+
     <color name="holo_blue_light">#ff33b5e5</color>
     <!-- A light Holo shade of gray -->
     <color name="holo_gray_light">#33999999</color>

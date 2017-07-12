@@ -1,6 +1,6 @@
 package com.anakin.ireader.helper.net;
 
-import com.anakin.ireader.model.entity.ArticleEntity;
+import com.anakin.ireader.model.entity.ArticleBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -12,5 +12,5 @@ import rx.Observable;
  */
 public interface ArticleService {
     @GET("/api/columns/{id}")
-    Observable<ArticleEntity> getArticle(@Path("id") String id);
+    Observable<ArticleBean> getArticle(@Path("id") String id);
 }

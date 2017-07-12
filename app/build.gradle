@@ -3,6 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion '24.0.2'
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
     defaultConfig {
         applicationId "com.anakin.ireader"
         minSdkVersion 19
@@ -37,6 +42,8 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
     //Gson
     compile 'com.google.code.gson:gson:2.6.2'
     //ButterKnife

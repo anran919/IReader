@@ -19,7 +19,7 @@ public class MoviesAdapter extends BaseAdapter<MovieEntity.SubjectsEntity> {
     }
 
     @Override
-    public BaseHolder<MovieEntity.SubjectsEntity> createHolder(Context context, View view) {
+    public BaseHolder<MovieEntity.SubjectsEntity> createHolder(Context context, List<MovieEntity.SubjectsEntity> datas, View view) {
         return new MovicesHolder(view);
     }
 }

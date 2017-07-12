@@ -18,7 +18,7 @@ public class QuestionsAdapter extends BaseAdapter<String> {
     }
 
     @Override
-    public BaseHolder<String> createHolder(Context context, View view) {
+    public BaseHolder<String> createHolder(Context context, List<String> datas, View view) {
         return null;
     }
 }

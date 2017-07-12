@@ -14,5 +14,5 @@ public class ZhuanLanApi {
     public static final String TEMPLATE_SIZE = "{size}";
 
 
-
+    public static final int DEFAULT_COUNT = 10;
 }

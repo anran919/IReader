@@ -3,53 +3,91 @@ package com.anakin.ireader.dao;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.anakin.ireader.model.entity.ArticleEntity;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 创建者     demo
- * 创建时间   2016/12/1 0001 15:09
+ * 创建时间   2017/7/4 0004 17:12
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "user_app_data.db";
-    private static DatabaseHelper instance;
 
+    private static final String TABLE_NAME = "ireader.db";
+    private static final int DATEBASE_VERSION = 1;
+    private Map<String, Dao> daos = new HashMap<>();
 
-    private DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public DatabaseHelper(Context context) {
+        super(context, TABLE_NAME, null, DATEBASE_VERSION);
     }
 
-    public static synchronized DatabaseHelper getHelper(Context context) {
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
+        try
+        {
+            TableUtils.createTable(connectionSource, ArticleEntity.class);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i1) {
+        try
+        {
+            TableUtils.dropTable(connectionSource, ArticleEntity.class, true);
+            onCreate(sqLiteDatabase, connectionSource);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    private static DatabaseHelper instance;
+
+    /**
+     * 单例获取该Helper
+     *
+     * @param context
+     * @return
+     */
+    public static synchronized DatabaseHelper getHelper(Context context)
+    {
         context = context.getApplicationContext();
-        if (instance == null) {
-            synchronized (DatabaseHelper.class) {
+        if (instance == null)
+        {
+            synchronized (DatabaseHelper.class)
+            {
                 if (instance == null)
                     instance = new DatabaseHelper(context);
             }
         }
+
         return instance;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
-     /*   try {
-            TableUtils.dropTable(connectionSource, CollectionsInfo.class, true);
-            TableUtils.dropTable(connectionSource, UsedInfo.class, true);
-            onCreate(database, connectionSource);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-    }
 
+    /**
+     * 释放资源
+     */
     @Override
-    public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
-       /* try {
-            TableUtils.createTable(connectionSource, CollectionsInfo.class);
-            TableUtils.createTable(connectionSource, UsedInfo.class);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
+    public void close()
+    {
+        super.close();
+
+        for (String key : daos.keySet())
+        {
+            Dao dao = daos.get(key);
+            dao = null;
+        }
     }
 }

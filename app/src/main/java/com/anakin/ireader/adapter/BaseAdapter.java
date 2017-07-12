@@ -14,7 +14,7 @@ import java.util.List;
  * 创建者     demo
  * 创建时间   2016/11/21 0021 11:39
  */
-public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> {
+public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>  {
 
     private List<T> datas;
     private int res_id;
@@ -30,10 +30,10 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
     @Override
     public BaseHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(res_id, parent, false);
-        return createHolder(mContext, view);
+        return createHolder(mContext, datas,view);
     }
 
-    public abstract BaseHolder<T> createHolder(Context context, View view);
+    public abstract BaseHolder<T> createHolder(Context context, List<T> datas, View view);
 
     @Override
     public void onBindViewHolder(BaseHolder<T> holder, int position) {
@@ -46,4 +46,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>>
     public int getItemCount() {
         return datas.size();
     }
+
+
 }

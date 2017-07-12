@@ -23,8 +23,6 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
         this.itemView=itemView;
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
-
-
     }
 
     public abstract void setData(T data, int position);

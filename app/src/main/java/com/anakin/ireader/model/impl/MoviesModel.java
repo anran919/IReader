@@ -39,7 +39,6 @@ public class MoviesModel implements IMoviesModel {
         call.enqueue(new Callback<MovieEntity>() {
             @Override
             public void onResponse(Call<MovieEntity> call, Response<MovieEntity> response) {
-//                resultTV.setText(response.body().toString());
                 MovieEntity MovieEntity = response.body();
                 moviesListener.OnSuccess(MovieEntity);
 
@@ -48,7 +47,6 @@ public class MoviesModel implements IMoviesModel {
             @Override
             public void onFailure(Call<MovieEntity> call, Throwable t) {
                 moviesListener.onFail();
-//                resultTV.setText(t.getMessage());
             }
         });
 

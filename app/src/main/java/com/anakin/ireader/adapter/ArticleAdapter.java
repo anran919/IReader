@@ -19,7 +19,10 @@ public class ArticleAdapter extends BaseAdapter<ArticleEntity> {
     }
 
     @Override
-    public BaseHolder<ArticleEntity> createHolder(Context context, View view) {
-        return new ArticleHolder(context,view);
+    public BaseHolder<ArticleEntity> createHolder(Context context, List<ArticleEntity> datas, View view) {
+        return new ArticleHolder(context,datas,view);
     }
+
+
+
 }

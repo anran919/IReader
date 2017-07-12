@@ -19,7 +19,7 @@ public class VideoAdapter extends BaseAdapter<VideoEntity.ResultsEntity> {
     }
 
     @Override
-    public BaseHolder<VideoEntity.ResultsEntity> createHolder(Context context, View view) {
+    public BaseHolder<VideoEntity.ResultsEntity> createHolder(Context context, List<VideoEntity.ResultsEntity> datas, View view) {
         return new VideoHolder(context,view);
     }
 }

@@ -41,7 +41,6 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -50,6 +49,7 @@
         />
 
         <activity android:name=".ui.activity.LoginActivity"/>
+        <activity android:name=".ui.activity.ZhuanLanListActivity"/>
 
         <!-- ShareSDK的activity -->
         <activity

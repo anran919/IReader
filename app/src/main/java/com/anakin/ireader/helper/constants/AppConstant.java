@@ -6,4 +6,7 @@ package com.anakin.ireader.helper.constants;
 public class AppConstant {
 
     public static final String PHOTO_DETAIL = "phot0_detail";
+
+
+    public static final String KEY_USER = "article_entity";
 }

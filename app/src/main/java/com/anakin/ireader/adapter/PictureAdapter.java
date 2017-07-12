@@ -19,7 +19,7 @@ public class PictureAdapter extends BaseAdapter<PictureEntity.ResultsEntity> {
     }
 
     @Override
-    public BaseHolder<PictureEntity.ResultsEntity> createHolder(Context context, View view) {
+    public BaseHolder<PictureEntity.ResultsEntity> createHolder(Context context, List<PictureEntity.ResultsEntity> datas, View view) {
         return new PictureHolder(view);
     }
 }
