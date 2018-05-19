@@ -13,4 +13,8 @@
     <dimen name="margin_4dp">4dp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="feed_item_corner_radius">3dp</dimen>
+    <dimen name="dp_150">150dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+
+    <string name="loading_data">正在加载...</string>
 </resources>

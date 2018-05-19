@@ -26,11 +26,11 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import butterknife.Bind;
 
-public class MainActivity extends BaseActivity
+public class MainActivity_ extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity_";
     @Bind(R.id.viewpager_activity_main)
     ViewPager mViewPager;
     @Bind(R.id.tabs)
@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity
         }
 
         if (!msg.equals("")) {
-            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity_.this, msg, Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -181,7 +181,7 @@ public class MainActivity extends BaseActivity
         }
 
         if (!msg.equals("")) {
-            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity_.this, msg, Toast.LENGTH_SHORT).show();
         }
         return true;
     }

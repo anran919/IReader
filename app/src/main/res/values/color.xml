@@ -60,4 +60,5 @@
     <color name="feed_bg">#f5f5f5</color>
     <color name="feed_item_bg">#ffffff</color>
     <color name="feed_item_border">#c2c3c8</color>
+
 </resources>

@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity_"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -48,7 +48,7 @@
                   android:launchMode="singleTask"
         />
 
-        <activity android:name=".ui.activity.LoginActivity"/>
+        <activity android:name=".ui.activity.MainActivity"/>
         <activity android:name=".ui.activity.ZhuanLanListActivity"/>
 
         <!-- ShareSDK的activity -->
@@ -90,6 +90,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.LoginActivity"/>
     </application>
 
 </manifest>
